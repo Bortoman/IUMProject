@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
-// potrei togliere data
-$(function(){
-  var currencies = [
+  $( function() {
+    var availableTags = [
     { value: 'Afghan', data: 'AFN' },
     { value: 'Albanian', data: 'ALL' },
     { value: 'Algerian', data: 'DZD' },
     { value: 'European', data: 'EUR' },
     { value: 'Angolan', data: 'AOA' },
-    { value: 'East Caribbean', data: 'XCD' },
     { value: 'Argentine', data: 'ARS' },
     { value: 'Armenian', data: 'AMD' },
     { value: 'Aruban', data: 'AWG' },
@@ -35,11 +30,14 @@ $(function(){
     { value: 'Brunei', data: 'BND' },
     { value: 'Bulgarian', data: 'BGN' },
     { value: 'Burundi', data: 'BIF' },
+    { value: 'Cagliari', data: 'CA' },
     { value: 'Cambodian', data: 'KHR' },
     { value: 'Central African CFA', data: 'XAF' },
     { value: 'Canadian', data: 'CAD' },
     { value: 'Cape Verdean', data: 'CVE' },
     { value: 'Cayman Islands', data: 'KYD' },
+    { value: 'Central African CFA', data: 'GQE' },
+    { value: 'CFP', data: 'XPF' },
     { value: 'Chilean', data: 'CLP' },
     { value: 'Chinese', data: 'CNY' },
     { value: 'Colombian', data: 'COP' },
@@ -53,13 +51,12 @@ $(function(){
     { value: 'Djiboutian', data: 'DJF' },
     { value: 'Dominican', data: 'DOP' },
     { value: 'Egyptian', data: 'EGP' },
-    { value: 'Central African CFA', data: 'GQE' },
+    { value: 'East Caribbean', data: 'XCD' },
     { value: 'Eritrean', data: 'ERN' },
     { value: 'Estonian', data: 'EEK' },
     { value: 'Ethiopian', data: 'ETB' },
     { value: 'Falkland Islands', data: 'FKP' },
     { value: 'Fijian', data: 'FJD' },
-    { value: 'CFP', data: 'XPF' },
     { value: 'Gambian', data: 'GMD' },
     { value: 'Georgian', data: 'GEL' },
     { value: 'Ghanaian', data: 'GHS' },
@@ -115,6 +112,7 @@ $(function(){
     { value: 'Nigerian', data: 'NGN' },
     { value: 'Norwegian', data: 'NOK' },
     { value: 'Omani', data: 'OMR' },
+    { value: 'Pabillonis', data: 'PBL' },
     { value: 'Pakistani', data: 'PKR' },
     { value: 'Panamanian', data: 'PAB' },
     { value: 'Papua New Guinea', data: 'PGK' },
@@ -131,6 +129,7 @@ $(function(){
     { value: 'Sao Tome and Principe', data: 'STD' },
     { value: 'Saudi', data: 'SAR' },
     { value: 'Serbian', data: 'RSD' },
+    { value: 'Sestu', data: 'ST' },
     { value: 'Seychellois', data: 'SCR' },
     { value: 'Sierra Leonean', data: 'SLL' },
     { value: 'Singapore', data: 'SGD' },
@@ -169,17 +168,28 @@ $(function(){
     { value: 'Zambian', data: 'ZMK' },
     { value: 'Zimbabwean', data: 'ZWD'}
   ];
-  
-  // setup autocomplete function pulling from currencies[] array
-  $('#autocomplete').autocomplete({
-    lookup: currencies,
-    onSelect: function (suggestion) {
-      var thehtml = '<strong>Selected city:</strong> ' + suggestion.value + ' (' + suggestion.data + ')';
-      $('#outputcontent').html(thehtml);
-    }
+    var NoResultsLabel = "No Results";
     
-    
-  });
-  
+    $("#autocomplete").autocomplete({
+        source: function(request, response) {
+            var results = $.ui.autocomplete.filter(availableTags, request.term);
 
+            if (!results.length) {
+                results = [NoResultsLabel];
+            }
+
+            response(results);
+        },
+        select: function (event, ui) {
+            if (ui.item.label === NoResultsLabel) {
+                event.preventDefault();
+            }
+        },
+        focus: function (event, ui) {
+            if (ui.item.label === NoResultsLabel) {
+                event.preventDefault();
+            }
+        }
+    });
 });
+    
