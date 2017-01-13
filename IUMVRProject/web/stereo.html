@@ -15,19 +15,31 @@
         left: 0;
         right: 0;
         bottom: 0;
+       
+      }
+      #pointer {
+          text-align: center;
+          display: inline;
+          width: 50px;
+          height:50px;
+          background: black;
+          z-index: 90;
       }
     </style>
   </head>
   <body>
-    <div id="example"></div>
-
+       
+      <div id="example">
+         
+      </div>
+      
   <script src="js/three.min.js"></script>
-  <script src="js/StereoEffect.js"></script>
+  <script src="js/StereoEffects.js"></script>
   <script src="js/DeviceOrientationControls.js"></script>
   <script src="js/OrbitControls.js"></script>
 
   <script>
-    var camera, scene, renderer;
+    var camera, pointer, scene, renderer;
     var effect, controls;
     var element, container;
     var targetList = [];
@@ -45,6 +57,7 @@
       element = renderer.domElement;
       container = document.getElementById('example');
       container.appendChild(element);
+      
 
       effect = new THREE.StereoEffect(renderer);
       
@@ -54,6 +67,14 @@
       camera = new THREE.PerspectiveCamera(75, width/height, 1, 1000);
       camera.position.set(0, 0, 0);
       scene.add(camera);
+      var pointMat= new THREE.LineBasicMaterial({
+        color: 0xfffff
+        });
+      var pointGeo= new THREE.CircleGeometry(0.5,10);
+      pointer= new THREE.Line(pointGeo, pointMat);
+      
+      camera.add(pointer);
+      pointer.position.set(0,0,-5);
 
       controls = new THREE.OrbitControls(camera, element);
       controls.rotateUp(Math.PI / 4);
@@ -99,12 +120,18 @@
         map: texture
       });
 
-      var geometry = new THREE.CubeGeometry(2, 2, 2);
+      var geometry = new THREE.CubeGeometry(2, 0, 2);
 
-      var mesh = new THREE.Mesh(geometry, material);
+      var goHall1 = new THREE.Mesh(geometry, material);
+      var goKitchen = new THREE.Mesh(geometry, material);
       
-      mesh.position.set(0,0,10);
-      mesh.rotation.y + (Math.PI / 4);
+      goHall1.position.set(-12,0,0);
+      goHall1.rotation.set(0,0,2.50);
+      goHall1.name="goHall1";
+      goKitchen.position.set(-12,0,0);
+      goKitchen.rotation.set(0,0,2.50);
+      goKitchen.name='goKitchen';
+      
       
       
       
@@ -112,13 +139,14 @@
       var sphere = new THREE.Mesh(
 			new THREE.SphereGeometry(100, 100, 100),
 			new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('equirect.png')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
 			})
 		);
 		sphere.scale.x = -1;
                 scene.add(sphere);
-                scene.add(mesh);
-                targetList.push(mesh);
+                scene.add(goHall1);
+                targetList.push(goHall1);
+                console.log(targetList[0].name);
       window.addEventListener('mousedown', function changePhoto(){
           // update the mouse variable
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -135,18 +163,43 @@
 	// create an array containing all objects in the scene with which the ray intersects
 	var intersects = ray.intersectObjects( targetList );
         for (var i=0; i<targetList.length; i++){
-            console.log(targetList[i]);
-            console.log(intersects[i]);
+            console.log(targetList[i].valueOf());
+            
         }
 	// if there is one (or more) intersections
 	if ( intersects.length > 0 )
 	{
-		console.log("Hit @ " + toString( intersects[0].point ) );
+		console.log("Hit @ " + intersects[0].object.name );
 		// change the color of the closest face.
+                /*if (intersects[0].object.name === "goHall1"){
 		sphere.material = new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('cpucl.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
 			});
+                        scene.remove(goHall1);
+                        targetList.pop(goHall1);
+                        scene.add(goKitchen);
                     }
+                */
+                switch (intersects[0].object.name){
+                    case 'goHall1':
+                        sphere.material = new THREE.MeshBasicMaterial({
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
+			});
+                        scene.remove(goHall1);
+                        targetList.pop(goHall1);
+                        scene.add(goKitchen);
+                        targetList.push(goKitchen);
+                        break;
+                    case 'goKitchen':
+                        sphere.material = new THREE.MeshBasicMaterial({
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Kitchen.jpg')
+			});
+                        scene.remove(goKitchen);
+                        targetList.pop(goKitchen);
+                        break;
+                    default:;
+                }
+            }
         }, false);
 
       window.addEventListener('resize', resize, false);
@@ -174,6 +227,7 @@
 
     function render(dt) {
       effect.render(scene, camera);
+      
     }
 
     function animate(t) {
