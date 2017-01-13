@@ -8,6 +8,8 @@ and open the template in the editor.
     Author     : Admin
 */
 
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
 body{
     margin: 0;
     font-family: "Open Sans", Arial, sans-serif;
@@ -140,7 +142,7 @@ body{
 
 #searchbar h1{
     font-size: 60px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .searchbutton{
@@ -289,18 +291,28 @@ body{
     
 }
 
-#searchbar h2{
-    font-size: 20px;
-    width: 53%;
+/* messaggio di warning */
+
+.isa_warning{
+    padding: 10px;
+    color: #9F6000;
+    background-color: #FEEFB3;
     margin-left: auto;
     margin-right: auto;
-    text-decoration: underline;
-    margin-bottom: 30px;
-    /* nascondi testo */
-    color:transparent;
-    /*border: 2px solid #73AD21;
-    border-radius: 3px;*/
+    margin-bottom: 20px;
+    width: 52%;
+    border-radius: 3px;
+    font-size: 19px;
+    border: 1px solid;
+    visibility: hidden;
 }
+
+/* cartello alt */
+#altboing{
+    font-size: 25px;
+    margin-right: 7px;
+}
+
 
 /* info sul sito */
 

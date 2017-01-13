@@ -3,8 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-  $( function trovaCitta() {
-    var availableTags = [
+
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+    var tags = [
     { value: 'Afghan', data: 'AFN' },
     { value: 'Albanian', data: 'ALL' },
     { value: 'Algerian', data: 'DZD' },
@@ -168,28 +175,36 @@
     { value: 'Zambian', data: 'ZMK' },
     { value: 'Zimbabwean', data: 'ZWD'}
   ];
-    var NoResultsLabel = "No Results";
+
+
+  function checkAnswer(){
+      
+    // trasformo il text preso tutto in minuscolo e poi metto maiuscola la prima lettera, 
+    // cosi' da trovarla nel vettore (per eventuali errori tra low/uppercase)
+    citta1 = document.getElementById('autocomplete').value;
+    citta2 = citta1.toLowerCase();
+    citta = citta2.charAt(0).toUpperCase() + citta2.slice(1);;
     
-    $("#autocomplete").autocomplete({
-        source: function(request, response) {
-            var results = $.ui.autocomplete.filter(availableTags, request.term);
+      var result = false;
+      // cerco tra le città
+      for (var i = 0; i < tags.length; i++) { 
+        if (tags[i].value === citta) { 
+            result = true;
+            break;
+            } 
+      }
+      
+      // se trova la città reindirizza 
+      if (result){
+           document.getElementById("autocomplete").value = citta;
+           $('#form-action').attr('action','Home');
+           $('#form-action').submit();
+      } 
+      
+      // altrimenti  visualizza un messaggio di errore
+      else{
+          document.getElementById("errormsg").style.visibility = 'visible';
+      }
+      return false;
 
-            if (!results.length) {
-                results = [NoResultsLabel];
-            }
-
-            response(results);
-        },
-        select: function (event, ui) {
-            if (ui.item.label === NoResultsLabel) {
-                event.preventDefault();
-            }
-        },
-        focus: function (event, ui) {
-            if (ui.item.label === NoResultsLabel) {
-                event.preventDefault();
-            }
-        }
-    });
-});
-
+  }
