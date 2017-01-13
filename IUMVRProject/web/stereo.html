@@ -30,7 +30,9 @@
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
-
+    var targetList = [];
+    var projector, mouse = { x: 0, y: 0 };
+    projector = new THREE.Projector();
     var clock = new THREE.Clock();
 
     init();
@@ -45,6 +47,7 @@
       container.appendChild(element);
 
       effect = new THREE.StereoEffect(renderer);
+      
 
       scene = new THREE.Scene();
 
@@ -100,9 +103,9 @@
 
       var mesh = new THREE.Mesh(geometry, material);
       
-      mesh.position.set(0,0,5);
+      mesh.position.set(0,0,10);
       mesh.rotation.y + (Math.PI / 4);
-      mesh.scale.x = 0.1;
+      
       
       
       
@@ -115,11 +118,41 @@
 		sphere.scale.x = -1;
                 scene.add(sphere);
                 scene.add(mesh);
+                targetList.push(mesh);
+      window.addEventListener('mousedown', function changePhoto(){
+          // update the mouse variable
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	
+	// find intersections
+
+	// create a Ray with origin at the mouse position
+	//   and direction into the scene (camera direction)
+	var vector = new THREE.Vector3();
+	projector.unprojectVector( vector, camera );
+	var ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+
+	// create an array containing all objects in the scene with which the ray intersects
+	var intersects = ray.intersectObjects( targetList );
+        for (var i=0; i<targetList.length; i++){
+            console.log(targetList[i]);
+            console.log(intersects[i]);
+        }
+	// if there is one (or more) intersections
+	if ( intersects.length > 0 )
+	{
+		console.log("Hit @ " + toString( intersects[0].point ) );
+		// change the color of the closest face.
+		sphere.material = new THREE.MeshBasicMaterial({
+				map: THREE.ImageUtils.loadTexture('cpucl.jpg')
+			});
+                    }
+        }, false);
 
       window.addEventListener('resize', resize, false);
       setTimeout(resize, 1);
     }
-
+    
     function resize() {
       var width = container.offsetWidth;
       var height = container.offsetHeight;
