@@ -16,7 +16,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/occorrenze.js"></script>
-  <script src="js/input.js"></script>
+  <script src="js/input2.js"></script>
 </head>
 <body>
     
