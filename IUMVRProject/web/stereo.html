@@ -44,7 +44,8 @@
     var element, container;
     var Bedroom1visited=false;//variabili per la gestione di una porta con lo stesso puntatore
     var Hall1visited=false;
-    var Hall2visited=false;//TODO Aggiungere puntatori per ogni stanza aka 2 per porta (entra/esci) per la gestione automatica
+    var Hall2visited=false;
+    var Bathroom2visited=false;//TODO Aggiungere puntatori per ogni stanza aka 2 per porta (entra/esci) per la gestione automatica
     var targetList = [];
     var projector, mouse = { x: 0, y: 0 };
     projector = new THREE.Projector();
@@ -235,6 +236,8 @@
                         scene.add(goHall1);
                         add_toRec(goHall1);
                         targetList.push(goHall1);
+                        goHall2.position.set(-5,0,12);
+                        goHall2.rotation.set(0,-1.5,0.75);
                         scene.add(goHall2);
                         add_toRec(goHall2);
                         targetList.push(goHall2);
@@ -253,6 +256,12 @@
                             scene.remove(goBathroom3);
                             targetList.pop(goBathroom3);
                             recRem(goBathroom3);
+                        }
+                        if(Bathroom2visited){
+                            scene.remove(goBathroom1);
+                            targetList.pop(goBathroom1);
+                            recRem(goBathroom1);
+                            Bathroom2visited=false;
                         }
                         scene.remove(goHall1);
                         targetList.pop(goHall1);
@@ -335,18 +344,22 @@
                         sphere.material = new THREE.MeshBasicMaterial({
 				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom2.jpg')
 			});
-                        scene.remove(goLiving);
-                        targetList.pop(goLiving);
-                        recRem(goLiving);
+                        Bathroom2visited=true;
                         scene.remove(goBathroom2);
                         targetList.pop(goBathroom2);
                         recRem(goBathroom2);
-                        scene.remove(goBedroom2);
-                        targetList.pop(goBedroom2);
-                        recRem(goBedroom2);
-                        scene.remove(goBedroom1);
-                        targetList.pop(goBedroom1);
-                        recRem(goBedroom1);
+                        if(Hall2visited){
+                            scene.remove(goLiving);
+                            targetList.pop(goLiving);
+                            recRem(goLiving);
+                            scene.remove(goBedroom2);
+                            targetList.pop(goBedroom2);
+                            recRem(goBedroom2);
+                            scene.remove(goBedroom1);
+                            targetList.pop(goBedroom1);
+                            recRem(goBedroom1);
+                            Hall2visited=false;
+                        }
                         goHall2.position.set(12,0,0);
                         goHall2.rotation.set(0,0,0.75);
                         scene.add(goHall2);
@@ -366,6 +379,9 @@
                         scene.remove(goBathroom1);
                         targetList.pop(goBathroom1);
                         recRem(goBathroom1);
+                        scene.remove(goHall2);
+                        targetList.pop(goHall2);
+                        recRem(goHall2);
                         goBathroom2.position.set(12,0,0);
                         goBathroom2.rotation.set(0,0,0.75);
                         scene.add(goBathroom2);
