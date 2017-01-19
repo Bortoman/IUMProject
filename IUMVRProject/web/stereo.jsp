@@ -1,35 +1,65 @@
+<%-- 
+    Document   : stereo
+    Created on : 15-gen-2017, 19.10.09
+    Author     : Alessandro Mainas
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Cardboard Example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/style2.css">
     <style>
-      
-      #example {
-        width: 100%;
-        height: 100%;
-      }
-      #TourVR{
-          width: 200px;
-          height: 120px;
-      }
-      .container{
-          width: 180px;
-          height: 100px;
-      }
-      .egua{
-          width:100%;
-          height: 70px;
-      }
+        /*TOURVR*/
+        #TourVR{
+            width: 100%;
+            height: 840px;
+        }
+        #example {
+          width: 100%;
+          height: 100%;
+        }
+        .InfoBig{
+            background: rgba(2,2,2,0.7);
+            height: 200px;
+            width: 100%;
+            position:relative;
+            top:-200px;
+        }
+        .InfoSmall{
+            background: white;
+            height: 300px;
+            width: 300px;
+            position: relative;
+            top: -150px;
+            left: 70%;
+            border-radius: 8px;
+        }
+        .InfoSmall button{
+            position: relative;
+            top: 80%;
+            left: 75px;
+        }
     </style>
   </head>
   <body>
-      <div class="egua"></div>
+    <div id="box">
+        <%@ include file="blocchi_dinamici/header.jsp" %>      
+    </div>  
     <section id="TourVR">
-        <div class="container">
+        
             <div id="example">
 
+            </div>
+        <div class="InfoBig">
+            
+            <div class="InfoSmall">
+                <button>
+                    Contatta Inserzionista
+                </button>
             </div>
         </div>
     </section>
@@ -577,3 +607,4 @@
   </script>
   </body>
 </html>
+

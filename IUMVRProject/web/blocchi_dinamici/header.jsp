@@ -10,7 +10,7 @@
     <div id="header_box">  
        <ul>
         <li style="float: left; margin-top: 5px; margin-left: 100px">
-            <img src="img/logoprova.jpg" alt="logo" width="50" height="50">
+            <img src="img/logo.png" alt="logo" width="50" height="50">
         </li>
        <!-- con il float right me li visualizza al contrario?!-->
         <li><a href="home1.jsp">About</a></li>
