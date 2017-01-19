@@ -13,10 +13,10 @@
             <img src="img/logoprova.jpg" alt="logo" width="50" height="50">
         </li>
        <!-- con il float right me li visualizza al contrario?!-->
-        <li><a href="about.asp">About</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="news.asp">News</a></li>
-        <li><a href="home.jsp">Home</a></li>
+        <li><a href="home1.jsp">About</a></li>
+        <li><a href="home1.jsp">Contact</a></li>
+        <li><a href="home1.jsp">News</a></li>
+        <li><a href="home1.jsp">Home</a></li>
         
          
         </ul>  
