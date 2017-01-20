@@ -1,7 +1,7 @@
 <%-- 
     Document   : gallery
     Created on : 20-gen-2017, 11.40.40
-    Author     : Alessandra
+    Author     : Mattia
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

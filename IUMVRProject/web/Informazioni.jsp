@@ -93,17 +93,17 @@
            <!-- <h1 id="cliente_title_480table">Carrello</h1>-->
             <table id="on_off_480table">
                 <tr>
-                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="330" height="260"></th>
-                <td>Nome: ${oggetto.nome}</td>
+                <th rowspan="5"><img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="330" height="260"></th>
+                <td>Indirizzo: Via Ospedale, 72</td>
                 </tr>
                 <tr>
-                <td>Dove: ${nome_citta}</td>
+                <td>Dove: Cagliari</td>
                 </tr>
                 <tr>
-                <td>Stelle: ${oggetto.prezzo}€</td>
+                <td>Metratura: 100 mq</td>
                 </tr>
                 <tr>
-                <td>Prezzo: ${oggetto.prezzo}€</td>
+                <td>Prezzo: 150.000 €</td>
                 </tr>
                 <tr>
                 <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>
@@ -112,17 +112,17 @@
                 <!-- prova con due elementi -->
             <table id="on_off_480table">
                 <tr>
-                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="330" height="260"></th>
-                <td>Nome: ${oggetto.nome}</td>
+                <th rowspan="5"><img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="330" height="260"></th>
+                <td>Indirizzo: Viale Trieste, 1</td>
                 </tr>
                 <tr>
-                <td>Dove: ${nome_citta}</td>
+                <td>Dove: Cagliari</td>
                 </tr>
                 <tr>
-                <td>Stelle: ${oggetto.prezzo}€</td>
+                <td>Metratura: 120 mq</td>
                 </tr>
                 <tr>
-                <td>Prezzo: ${oggetto.prezzo}€</td>
+                <td>Prezzo: Sempre €</td>
                 </tr>
                 <tr>
                 <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>

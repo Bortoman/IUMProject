@@ -1,0 +1,5 @@
+-Menù funzionante
+-Risistemare i tour
+-Fare secondo tour
+-Finire pagina coi filtri
+-Generazione dinamica informazioni delle case
