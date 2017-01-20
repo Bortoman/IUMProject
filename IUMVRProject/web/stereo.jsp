@@ -215,22 +215,23 @@
                         console.log(targetList[i].valueOf());
 
                     }
-                    if (nomeFoto == "null") {
-                        // if there is one (or more) intersections
-                        if (intersects.length > 0)
-                        {
-                            console.log("Hit @ " + intersects[0].object.name);
-                            // change the color of the closest face.
-                            /*if (intersects[0].object.name === "goHall1"){
-                             sphere.material = new THREE.MeshBasicMaterial({
-                             map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
-                             });
-                             scene.remove(goHall1);
-                             targetList.pop(goHall1);
-                             scene.add(goKitchen);
-                             }
-                             */
-
+                    // if there is one (or more) intersections
+                    if (nomeFoto === "null") {
+                        if( intersects !== undefined){
+                    if (intersects.length > 0)
+                    {
+                        console.log("Hit @ " + intersects[0].object.name);
+                        // change the color of the closest face.
+                        /*if (intersects[0].object.name === "goHall1"){
+                         sphere.material = new THREE.MeshBasicMaterial({
+                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
+                         });
+                         scene.remove(goHall1);
+                         targetList.pop(goHall1);
+                         scene.add(goKitchen);
+                         }
+                         */
+                        
                             switch (intersects[0].object.name) {
                                 case 'goHall1':
                                     sphere.material = new THREE.MeshBasicMaterial({
@@ -474,7 +475,10 @@
                                     ;
 
                             }
-                        } else {
+                        }
+                    }
+                }
+                        else{
                             switch (nomeFoto) {
                                 case 'goHall1':
                                     sphere.material = new THREE.MeshBasicMaterial({
@@ -719,9 +723,10 @@
 
                             }
                         }
-
                     }
-                }
+                            
+                    
+                
 
 
 
