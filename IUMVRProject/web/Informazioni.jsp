@@ -93,7 +93,7 @@
            <!-- <h1 id="cliente_title_480table">Carrello</h1>-->
             <table id="on_off_480table">
                 <tr>
-                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="350" height="250"></th>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="330" height="260"></th>
                 <td>Nome: ${oggetto.nome}</td>
                 </tr>
                 <tr>
@@ -112,7 +112,7 @@
                 <!-- prova con due elementi -->
             <table id="on_off_480table">
                 <tr>
-                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="350" height="200"></th>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="330" height="260"></th>
                 <td>Nome: ${oggetto.nome}</td>
                 </tr>
                 <tr>
