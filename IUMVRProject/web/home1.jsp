@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HiFi-Rooms</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/occorrenze.js"></script>
-  <script src="js/input2.js"></script>
+  <script src="js/input.js"></script>
 </head>
 <body>
     
