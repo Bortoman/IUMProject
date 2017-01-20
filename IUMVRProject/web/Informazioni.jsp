@@ -17,7 +17,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/occorrenze.js"></script>
-  <script src="js/input2.js"></script>
+  <script src="js/input.js"></script>
 </head>
 <body>
     
@@ -77,19 +77,63 @@
      <!--<h1>Città selezionata ${nome_citta}</h1> -->
      
           <div class="allinea">
+              <!--
             <div id="search_results">
                 <div id="result1">
-                    <img src="img/ap1.jpg" alt="info+.jsp" width="200" height="200" style="float: left;">
+                    <img src="img/ap1.jpg" alt="info+.jsp" width="220" height="220" class="apartimg">
                     <p>Nome</p>
                     <p>Dove</p>
                     <p>Stelle</p>
                     <p>Prezzo</p>
+                    <button type="Submit" value="infobutton">Visualizza informazioni</button>
                 </div>
-            </div>
+            </div>-->
+              
+            <div id="cliente_480table">
+           <!-- <h1 id="cliente_title_480table">Carrello</h1>-->
+            <table id="on_off_480table">
+                <tr>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="350" height="250"></th>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <tr>
+                <td>Dove: ${nome_citta}</td>
+                </tr>
+                <tr>
+                <td>Stelle: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>
+                </tr>
+            </table>
+                <!-- prova con due elementi -->
+            <table id="on_off_480table">
+                <tr>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="img/ap1.jpg" width="350" height="200"></th>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <tr>
+                <td>Dove: ${nome_citta}</td>
+                </tr>
+                <tr>
+                <td>Stelle: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>
+                </tr>
+            </table>
+        </div>
 
             <div id="right_section">
                 Mappa
             </div>
+                
           </div>
         
         
