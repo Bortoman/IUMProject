@@ -1,7 +1,7 @@
 <%-- 
-    Document   : stereo
-    Created on : 15-gen-2017, 19.10.09
-    Author     : Alessandro Mainas
+    Document   : CasaMia
+    Created on : 20-gen-2017, 12.02.51
+    Author     : aless
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,58 +11,39 @@
     <title>Cardboard Example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" href="css/style2.css">
     <style>
-        /*TOURVR*/
-        #TourVR{
-            width: 100%;
-            height: 600px;
+        body {
+            overflow: hidden;
+            
         }
-        #example {
-          width: 100%;
-          height: 100%;
-        }
-        .InfoBig{
-            background: rgba(2,2,2,0.7);
-            height: 200px;
-            width: 100%;
-            position:relative;
-            top:-200px;
-        }
-        .InfoSmall{
-            background: white;
-            height: 300px;
-            width: 300px;
-            position: relative;
-            top: -150px;
-            left: 70%;
-            border-radius: 8px;
-        }
-        .InfoSmall button{
-            position: relative;
-            top: 80%;
-            left: 75px;
-        }
+      
+      #example {
+        position:absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      #TourVR{
+          width: 200px;
+          height: 120px;
+      }
+      .container{
+          width: 180px;
+          height: 100px;
+      }
+      .egua{
+          width:100%;
+          height: 70px;
+      }
     </style>
   </head>
   <body>
-    <div id="box">
-        <%@ include file="blocchi_dinamici/header.jsp" %>      
-    </div>
-    <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 600px; width: 230px">
-        <%@ include file="blocchi_dinamici/gallery.jsp"%>
-    </div>
+      <div class="egua"></div>
     <section id="TourVR">
-        
+        <div class="container">
             <div id="example">
 
-            </div>
-        <div class="InfoBig">
-            
-            <div class="InfoSmall">
-                <button>
-                    Contatta Inserzionista
-                </button>
             </div>
         </div>
     </section>
@@ -72,8 +53,11 @@
   <script src="js/DeviceOrientationControls.js" type="text/javascript"></script>
   <script src="js/OrbitControls.js" type="text/javascript"></script>
   <script src="js/reticulum.js" type="text/javascript"></script>
+ 
   <script>
     var camera, pointer, scene, renderer;
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector2();
     var effect, controls;
     var element, container;
     var Bedroom1visited=false;//variabili per la gestione di una porta con lo stesso puntatore
@@ -81,7 +65,8 @@
     var Hall2visited=false;
     var Bathroom2visited=false;//TODO Aggiungere puntatori per ogni stanza aka 2 per porta (entra/esci) per la gestione automatica
     var targetList = [];
-    var projector, mouse = { x: 0, y: 0 };
+    var projector;
+    var intersects;
     projector = new THREE.Projector();
     var clock = new THREE.Clock();
     var isMobile = false; //initiate as false
@@ -151,7 +136,7 @@
       var pointGeo= new THREE.CircleGeometry(0.05,25);
       pointer= new THREE.Line(pointGeo, pointMat);
       
-      camera.add(pointer);
+      if(isMobile) camera.add(pointer);
       pointer.position.set(0,0,-5);
 
       controls = new THREE.OrbitControls(camera, element);
@@ -178,6 +163,17 @@
         window.removeEventListener('deviceorientation', setOrientationControls, true);
       }
       window.addEventListener('deviceorientation', setOrientationControls, true);
+      
+      function onMouseMove( event ) 
+    {
+	// the following line would stop any other event handler from firing
+	// (such as the mouse's TrackballControls)
+	// event.preventDefault();
+	
+	// update the mouse variable
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    }
 
       function changePhoto(){
           /* update the mouse variable
@@ -189,12 +185,10 @@
 
 	// create a Ray with origin at the mouse position
 	//   and direction into the scene (camera direction)
-	var vector = new THREE.Vector3();
-	projector.unprojectVector( vector, camera );
-	var ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-
-	// create an array containing all objects in the scene with which the ray intersects
-	var intersects = ray.intersectObjects( targetList );
+	
+	
+	
+        
         for (var i=0; i<targetList.length; i++){
             console.log(targetList[i].valueOf());
             
@@ -216,7 +210,7 @@
                 switch (intersects[0].object.name){
                     case 'goHall1':
                         sphere.material = new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento2/Hall1.jpg')
 			});
                         //TODO wrappare le operazioni di aggiunta e rimozione in un ciclo for una volta fatti i vettori per ogni stanza
                         if (!Hall1visited) Hall1visited=true;
@@ -330,33 +324,25 @@
                         targetList.push(goBathroom2);
                         console.log(targetList[0].name);
                         break;
-                    case 'goBedroom1':
+                    case 'goBedroom':
                         sphere.material = new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom1.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento2/Bedroom.jpg')
 			});
                         Bedroom1visited=true;
-                        scene.remove(goLiving);
-                        targetList.pop(goLiving);
-                        recRem(goLiving);
-                        scene.remove(goBedroom1);
-                        targetList.pop(goBedroom1);
-                        recRem(goBedroom1);
-                        scene.remove(goBedroom2);
-                        targetList.pop(goBedroom2);
-                        recRem(goBedroom2);
-                        scene.remove(goBathroom2);
-                        targetList.pop(goBathroom2);
-                        recRem(goBathroom2);
-                        goBathroom3.position.set(-4,0,17);
-                        goBathroom3.rotation.set(1.5,3.20,0);
-                        scene.add(goBathroom3);
-                        add_toRec(goBathroom3);
-                        targetList.push(goBathroom3);
-                        goHall2.position.set(0,0,12);
-                        goHall2.rotation.set(0,-1.5,0.75);
-                        scene.add(goHall2);
-                        add_toRec(goHall2);
-                        targetList.push(goHall2);
+             
+                        scene.remove(goBedroom);
+                        targetList.pop(goBedroom);
+                        recRem(goBedroom);
+                        scene.remove(goHall2);
+                        targetList.pop(goHall2);
+                        recRem(goHall2);
+                        
+                        goHall1.position.set(5,0,-12);
+                        goHall1.rotation.set(0,1.2,0.75);
+                        scene.add(goHall1);
+                        add_toRec(goHall1);
+                        targetList.push(goHall1);
+                        
                         console.log(targetList[0].name);
                         break;
                     case 'goBedroom2':
@@ -414,9 +400,9 @@
                         targetList.push(goBathroom1);
                         console.log(targetList[0].name);
                         break;
-                    case 'goBathroom1':
+                    case 'goBathroom':
                         sphere.material = new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom1.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom.jpg')
 			});
                         scene.remove(goBathroom1);
                         targetList.pop(goBathroom1);
@@ -481,41 +467,30 @@
       var goHall2 = new THREE.Mesh(geometry, material);
       var goKitchen = new THREE.Mesh(geometry, material);
       var goLiving = new THREE.Mesh(geometry, material);
-      var goBedroom1 = new THREE.Mesh(geometry, material);
-      var goBedroom2 = new THREE.Mesh(geometry, material);
-      var goBathroom2 = new THREE.Mesh(geometry, material);
-      var goBathroom1 = new THREE.Mesh(geometry, material);
-      var goBathroom3 = new THREE.Mesh(geometry, material);
+      var goBedroom = new THREE.Mesh(geometry, material);
+      
+      var goBathroom = new THREE.Mesh(geometry, material);
+      
       
       //TODO Creare vettori per ogni stanza che contengono i pulsanti di navigazione
-      goHall1.position.set(-12,0,0);
-      goHall1.rotation.set(0,0,2.50);
-      goHall1.name="goHall1";
       
-                
-      goKitchen.position.set(-12,0,0);
-      goKitchen.rotation.set(0,0,2.50);
+      goHall1.name="goHall1";             
       goKitchen.name='goKitchen';
       
-      goLiving.position.set(12,0,0);
-      goLiving.rotation.set(0,0,0.75);
-      goLiving.name='goLiving';
-      
-      goHall2.position.set(-5,0,12);
+      goHall2.position.set(-2.2,0,12);
       goHall2.rotation.set(0,1.5,2.50);
       goHall2.name="goHall2";
       add_toRec(goHall2);
-      add_toRec(goHall1);
       
       
-      goBedroom1.name='goBedroom1';
+      goBedroom.position.set(-12,0,1.2);
+      goBedroom.rotation.set(0,0,2.50);
+      goBedroom.name='goBedroom';
+      add_toRec(goBedroom);
       
       
-      goBedroom2.name='goBedroom2';
-      goBathroom2.name='goBathroom2';
-      goBathroom1.name='goBathroom1';
-      goBathroom3.name='goBathroom3';
       
+      goBathroom.name='goBathroom';
       
       
       
@@ -526,16 +501,16 @@
       var sphere = new THREE.Mesh(
 			new THREE.SphereGeometry(100, 100, 100),
 			new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento2/Hall1.jpg')
 			})
 		);
 		sphere.scale.x = -1;
                 scene.add(sphere);
                 
-                scene.add(goHall1);
-                targetList.push(goHall1);
                 scene.add(goHall2);
                 targetList.push(goHall2);
+                scene.add(goBedroom);
+                targetList.push(goBedroom);
                 window.addEventListener('mousedown', changePhoto, false);
                 function add_toRec(object){
                     Reticulum.add( object, {
@@ -570,7 +545,7 @@
                 
         
       
-
+      document.addEventListener( 'mousemove', onMouseMove, false );
       window.addEventListener('resize', resize, false);
       setTimeout(resize, 1);
     }
@@ -596,6 +571,10 @@
     }
 
     function render(dt) {
+        raycaster.setFromCamera(mouse, camera);
+
+	// create an array containing all objects in the scene with which the ray intersects
+	intersects = raycaster.intersectObjects( targetList );
       if(isMobile) effect.render(scene, camera);
       else renderer.render(scene, camera);
       
@@ -622,4 +601,3 @@
   </script>
   </body>
 </html>
-
