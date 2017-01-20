@@ -132,7 +132,7 @@
                 var pointGeo = new THREE.CircleGeometry(0.05, 25);
                 pointer = new THREE.Line(pointGeo, pointMat);
 
-                camera.add(pointer);
+                if(isMobile) camera.add(pointer);
                 pointer.position.set(0, 0, -5);
 
                 controls = new THREE.OrbitControls(camera, element);
@@ -176,20 +176,20 @@
                      mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
                      mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
                      */
+                    console.log(this.toString());
+                    scene.remove(scene.children);
+                    
 
+                    
                     // find intersections
 
                     // create a Ray with origin at the mouse position
                     //   and direction into the scene (camera direction)
-
-
-
-
-                    for (var i = 0; i < targetList.length; i++) {
-                        console.log(targetList[i].valueOf());
-
-                    }
+                    //   
                     // if there is one (or more) intersections
+                    console.log(intersects);
+                    if (nomeFoto === "null" &&  intersects !== undefined) {
+                        
                     if (intersects.length > 0)
                     {
                         console.log("Hit @ " + intersects[0].object.name);
@@ -203,9 +203,11 @@
                          scene.add(goKitchen);
                          }
                          */
-                        if (nomeFoto = "null") {
+
                             switch (intersects[0].object.name) {
                                 case 'goHall1':
+                                    
+                                    
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
                                     });
@@ -448,6 +450,8 @@
 
                             }
                         }
+                    
+                    }
                         else{
                             switch (nomeFoto) {
                                 case 'goHall1':
@@ -693,9 +697,10 @@
 
                             }
                         }
-                            
                     }
-                }
+                            
+                    
+                
 
 
 
@@ -729,6 +734,24 @@
                 var goBathroom2 = new THREE.Mesh(geometry, material);
                 var goBathroom1 = new THREE.Mesh(geometry, material);
                 var goBathroom3 = new THREE.Mesh(geometry, material);
+                var goLivingFH1 = new THREE.Mesh(geometry, material);
+                var goHallF4 = new THREE.Mesh(geometry, material);
+                var goHallFB1 = new THREE.Mesh(geometry, material);
+                var goHallFB2 = new THREE.Mesh(geometry, material);
+                var goHall2FB2 = new THREE.Mesh(geometry, material);
+                var goBathroom2FB3 = new THREE.Mesh(geometry, material);
+                var goLivingFH2 = new THREE.Mesh(geometry, material);
+                
+                var livingPointers = [goHall1, goHall2];
+                var hall1Pointers = [goLivingFH1, goKitchen];
+                var kitchenPoninters = [goHallF4];
+                var bedroom1Pointers = [goHallFB1];
+                var bedroom2Pointers = [goHallFB2, goBathroom3];
+                var bathroom3Pointers = [goBedroom2];
+                var bathroom2Pointers = [goHall2FB2, goBathroom1];
+                var bathroom3Pointers = [goBathroom2FB3];
+                var hall2Pointers = [goLivingFH2, goBedroom1, goBedroom2, goBathroom2];
+                
 
                 //TODO Creare vettori per ogni stanza che contengono i pulsanti di navigazione
                 goHall1.position.set(-12, 0, 0);
@@ -758,6 +781,15 @@
                 goBathroom2.name = 'goBathroom2';
                 goBathroom1.name = 'goBathroom1';
                 goBathroom3.name = 'goBathroom3';
+                goLivingFH1.name = 'goLivingFH1';
+                goHallF4.name = 'goHallF4';
+                goHallFB1.name = 'goHallFB1';
+                goHallFB2.name = 'goHallFB2';
+                goHall2FB2.name = 'goHall2FB2';
+                goBathroom2FB3.name = 'goBathroom2FB3';
+                goLivingFH2.name = 'goLivingFH2';
+                
+                
 
 
 
@@ -779,7 +811,7 @@
                 targetList.push(goHall1);
                 scene.add(goHall2);
                 targetList.push(goHall2);
-                window.addEventListener('mousedown', changePhoto("null"), false);
+                window.addEventListener('mousedown',function (){ changePhoto("null");}, false);
                 function add_toRec(object) {
                     Reticulum.add(object, {
                         clickCancelFuse: true, // Overrides global setting for fuse's clickCancelFuse
@@ -798,7 +830,7 @@
                         onGazeLong: function () {
                             // do something user targetes object for specific time
                             this.material.emissive.setHex(0x0000cc);
-                            changePhoto(null);
+                            changePhoto("null");
                         },
                         onGazeClick: function () {
                             // have the object react when user clicks / taps on targeted object
