@@ -14,9 +14,12 @@
         <link rel="stylesheet" href="css/style2.css">
         <style>
             /*TOURVR*/
+            body{
+                overflow: hidden;
+            }
             #TourVR{
                 width: 100%;
-                height: 600px;
+                height: 720px;
             }
             #example {
                 width: 100%;
@@ -31,25 +34,25 @@
             }
             .InfoSmall{
                 background: white;
-                height: 300px;
-                width: 300px;
+                height: 250px;
+                width: 250px;
                 position: relative;
                 top: -150px;
-                left: 70%;
+                left: 65%;
                 border-radius: 8px;
             }
             .InfoSmall button{
                 position: relative;
                 top: 80%;
-                left: 75px;
+                left: 50px;
             }
         </style>
     </head>
     <body>
-        <div id="box">
+        <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
-        <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 600px; width: 230px">
+        <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 720px; width: 230px; z-index: 2">
             <%@ include file="blocchi_dinamici/gallery.jsp"%>
         </div>
         <section id="TourVR">
@@ -99,7 +102,19 @@
 
             init();
             animate();
+            
+            
+            function onMouseMove(event)
+                {
+                    // the following line would stop any other event handler from firing
+                    // (such as the mouse's TrackballControls)
+                    // event.preventDefault();
 
+                    // update the mouse variable
+                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                }
+                
 
             function init() {
 
@@ -188,27 +203,13 @@
                 }
                 window.addEventListener('deviceorientation', setOrientationControls, true);
 
-                function onMouseMove(event)
-                {
-                    // the following line would stop any other event handler from firing
-                    // (such as the mouse's TrackballControls)
-                    // event.preventDefault();
-
-                    // update the mouse variable
-                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-                }
+                
 
                 changePhoto = function changePhoto(nomeFoto) {
                     /* update the mouse variable
                      mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
                      mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
                      */
-                    console.log(this.toString());
-                    
-                    
-
-                    
                     // find intersections
 
                     // create a Ray with origin at the mouse position
@@ -243,218 +244,273 @@
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
                                     });
                                     //TODO wrappare le operazioni di aggiunta e rimozione in un ciclo for una volta fatti i vettori per ogni stanza
-                                    if (!Hall1visited)
-                                        Hall1visited = true;
-                                    if (Hall2visited)
-                                        Hall2visited = false;
+                                    
                                     current= hall1Pointers;
                                     for (var i = 0; i< hall1Pointers.length; i++){
                                         scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    
+                                    break;
+                                    case 'goHall1FK':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
                                         targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
+                                    });
+                                    //TODO wrappare le operazioni di aggiunta e rimozione in un ciclo for una volta fatti i vettori per ogni stanza
+                                    
+                                    current= hall1Pointers;
+                                    for (var i = 0; i< hall1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
                                         recRem(current[i]);
                                     }
                                     
                                     break;
+                                    case 'goKitchen':
+                                        for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Kitchen.jpg')
+                                    });
+                                    current= kitchenPointers;
+                                    for (var i = 0; i< kitchenPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
                                 case 'goLiving':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
                                     });
-                                    if (Hall2visited) {
-                                        scene.remove(goBedroom1);
-                                        targetList.pop(goBedroom1);
-                                        recRem(goBedroom1);
-                                        scene.remove(goBedroom2);
-                                        targetList.pop(goBedroom2);
-                                        recRem(goBedroom2);
-                                        scene.remove(goBathroom2);
-                                        targetList.pop(goBathroom2);
-                                        recRem(goBathroom2);
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    if (Hall1visited) {
-                                        scene.remove(goKitchen);
-                                        targetList.pop(goKitchen);
-                                        recRem(goKitchen);
+                                    break;
+                                case 'goLivingFH1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
                                     }
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    goHall1.position.set(-12, 0, 0);
-                                    goHall1.rotation.set(0, 0, 2.5);
-                                    scene.add(goHall1);
-                                    add_toRec(goHall1);
-                                    targetList.push(goHall1);
-                                    goHall2.position.set(-5, 0, 12);
-                                    goHall2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
+                                    });
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goLivingFH2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
+                                    });
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goHall2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
                                     });
-                                    if (!Hall2visited)
-                                        Hall2visited = true;
-                                    if (Hall1visited)
-                                        Hall1visited = false;
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    if (Bedroom1visited) {
-                                        scene.remove(goBathroom3);
-                                        targetList.pop(goBathroom3);
-                                        recRem(goBathroom3);
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    if (Bathroom2visited) {
-                                        scene.remove(goBathroom1);
-                                        targetList.pop(goBathroom1);
-                                        recRem(goBathroom1);
-                                        Bathroom2visited = false;
+                                    break;
+                                case 'goHall2FB2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
                                     }
-                                    scene.remove(goHall1);
-                                    targetList.pop(goHall1);
-                                    recRem(goHall1);
-                                    goLiving.position.set(12, 0, 0);
-                                    goLiving.rotation.set(0, 0, 0.75);
-                                    scene.add(goLiving);
-                                    add_toRec(goLiving);
-                                    targetList.push(goLiving);
-                                    goBedroom1.position.set(0, 0, -12);
-                                    goBedroom1.rotation.set(0, -1.5, 2.5);
-                                    scene.add(goBedroom1);
-                                    add_toRec(goBedroom1);
-                                    targetList.push(goBedroom1);
-                                    goBedroom2.position.set(1, 0, 12);
-                                    goBedroom2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goBedroom2);
-                                    add_toRec(goBedroom2);
-                                    targetList.push(goBedroom2);
-                                    goBathroom2.position.set(-12, 0, 0);
-                                    goBathroom2.rotation.set(0, 0, 2.5);
-                                    scene.add(goBathroom2);
-                                    add_toRec(goBathroom2);
-                                    targetList.push(goBathroom2);
-                                    console.log(targetList[0].name);
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goHall2FB1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goHall2FBed2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBedroom1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom1.jpg')
                                     });
-                                    Bedroom1visited = true;
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    scene.remove(goBedroom1);
-                                    targetList.pop(goBedroom1);
-                                    recRem(goBedroom1);
-                                    scene.remove(goBedroom2);
-                                    targetList.pop(goBedroom2);
-                                    recRem(goBedroom2);
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    goBathroom3.position.set(-4, 0, 17);
-                                    goBathroom3.rotation.set(1.5, 3.20, 0);
-                                    scene.add(goBathroom3);
-                                    add_toRec(goBathroom3);
-                                    targetList.push(goBathroom3);
-                                    goHall2.position.set(0, 0, 12);
-                                    goHall2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    current= bedroom1Pointers;
+                                    for (var i = 0; i< bedroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBedroom2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom2.jpg')
                                     });
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    scene.remove(goBedroom2);
-                                    targetList.pop(goBedroom2);
-                                    recRem(goBedroom2);
-                                    scene.remove(goBedroom1);
-                                    targetList.pop(goBedroom1);
-                                    recRem(goBedroom1);
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    goHall2.position.set(-3, 0, -12);
-                                    goHall2.rotation.set(0, 1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    current= bedroom2Pointers;
+                                    for (var i = 0; i< bedroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goBedroom1FB3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom1.jpg')
+                                    });
+                                    current= bedroom1Pointers;
+                                    for (var i = 0; i< bedroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom2.jpg')
                                     });
-                                    Bathroom2visited = true;
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    if (Hall2visited) {
-                                        scene.remove(goLiving);
-                                        targetList.pop(goLiving);
-                                        recRem(goLiving);
-                                        scene.remove(goBedroom2);
-                                        targetList.pop(goBedroom2);
-                                        recRem(goBedroom2);
-                                        scene.remove(goBedroom1);
-                                        targetList.pop(goBedroom1);
-                                        recRem(goBedroom1);
-                                        Hall2visited = false;
+                                    current= bathroom2Pointers;
+                                    for (var i = 0; i< bathroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    goHall2.position.set(12, 0, 0);
-                                    goHall2.rotation.set(0, 0, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    goBathroom1.position.set(2, 0, 12);
-                                    goBathroom1.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goBathroom1);
-                                    add_toRec(goBathroom1);
-                                    targetList.push(goBathroom1);
-                                    console.log(targetList[0].name);
+                                    break;
+                                case 'goBathroom2FB3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom2.jpg')
+                                    });
+                                    current= bathroom2Pointers;
+                                    for (var i = 0; i< bathroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom1.jpg')
                                     });
-                                    scene.remove(goBathroom1);
-                                    targetList.pop(goBathroom1);
-                                    recRem(goBathroom1);
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    goBathroom2.position.set(12, 0, 0);
-                                    goBathroom2.rotation.set(0, 0, 0.75);
-                                    scene.add(goBathroom2);
-                                    add_toRec(goBathroom2);
-                                    targetList.push(goBathroom2);
-                                    console.log(targetList[0].name);
+                                    current= bathroom1Pointers;
+                                    for (var i = 0; i< bathroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom3.jpg')
                                     });
-                                    
-                                    scene.remove(goBathroom3);
-                                    targetList.pop(goBathroom3);
-                                    recRem(goBathroom3);
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    goBedroom1.position.set(12, 0, 0);
-                                    goBedroom1.rotation.set(0, 0, 0.75);
-                                    scene.add(goBedroom1);
-                                    add_toRec(goBedroom1);
-                                    targetList.push(goBedroom1);
-                                    console.log(targetList[0].name);
+                                    current= bathroom3Pointers;
+                                    for (var i = 0; i< bathroom3Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 default:
                                     ;
@@ -466,249 +522,289 @@
                         else{
                             switch (nomeFoto) {
                                 case 'goHall1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
                                     });
                                     //TODO wrappare le operazioni di aggiunta e rimozione in un ciclo for una volta fatti i vettori per ogni stanza
-                                    if (!Hall1visited)
-                                        Hall1visited = true;
-                                    if (Hall2visited)
-                                        Hall2visited = false;
-                                    scene.remove(goHall1);
-                                    targetList.pop(goHall1);
-                                    recRem(goHall1);
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    goKitchen.position.set(-12, 0, 0);
-                                    scene.add(goKitchen);
-                                    add_toRec(goKitchen);
-                                    targetList.push(goKitchen);
-                                    scene.add(goLiving);
-                                    add_toRec(goLiving);
-                                    targetList.push(goLiving);
-                                    console.log(targetList[0].name);
+                                    
+                                    current= hall1Pointers;
+                                    for (var i = 0; i< hall1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    
                                     break;
-                                case 'goKitchen':
+                                    case 'goHall1FK':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall1.jpg')
+                                    });
+                                    //TODO wrappare le operazioni di aggiunta e rimozione in un ciclo for una volta fatti i vettori per ogni stanza
+                                    
+                                    current= hall1Pointers;
+                                    for (var i = 0; i< hall1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    
+                                    break;
+                                    case 'goKitchen':
+                                        for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Kitchen.jpg')
                                     });
-                                    scene.remove(goKitchen);
-                                    targetList.pop(goKitchen);
-                                    recRem(goKitchen);
-                                    goHall1.position.set(12, 0, 0);
-                                    goHall1.rotation.set(0, 0, 0.75);
-                                    scene.add(goHall1);
-                                    add_toRec(goHall1);
-                                    targetList.push(goHall1);
-                                    console.log(targetList[0].name);
+                                    current= kitchenPointers;
+                                    for (var i = 0; i< kitchenPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goLiving':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
                                     });
-                                    if (Hall2visited) {
-                                        scene.remove(goBedroom1);
-                                        targetList.pop(goBedroom1);
-                                        recRem(goBedroom1);
-                                        scene.remove(goBedroom2);
-                                        targetList.pop(goBedroom2);
-                                        recRem(goBedroom2);
-                                        scene.remove(goBathroom2);
-                                        targetList.pop(goBathroom2);
-                                        recRem(goBathroom2);
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    if (Hall1visited) {
-                                        scene.remove(goKitchen);
-                                        targetList.pop(goKitchen);
-                                        recRem(goKitchen);
+                                    break;
+                                case 'goLivingFH1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
                                     }
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    goHall1.position.set(-12, 0, 0);
-                                    goHall1.rotation.set(0, 0, 2.5);
-                                    scene.add(goHall1);
-                                    add_toRec(goHall1);
-                                    targetList.push(goHall1);
-                                    goHall2.position.set(-5, 0, 12);
-                                    goHall2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
+                                    });
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goLivingFH2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Living.jpg')
+                                    });
+                                    current= livingPointers;
+                                    for (var i = 0; i< livingPointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goHall2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
                                     });
-                                    if (!Hall2visited)
-                                        Hall2visited = true;
-                                    if (Hall1visited)
-                                        Hall1visited = false;
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    if (Bedroom1visited) {
-                                        scene.remove(goBathroom3);
-                                        targetList.pop(goBathroom3);
-                                        recRem(goBathroom3);
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    if (Bathroom2visited) {
-                                        scene.remove(goBathroom1);
-                                        targetList.pop(goBathroom1);
-                                        recRem(goBathroom1);
-                                        Bathroom2visited = false;
+                                    break;
+                                case 'goHall2FB2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
                                     }
-                                    scene.remove(goHall1);
-                                    targetList.pop(goHall1);
-                                    recRem(goHall1);
-                                    goLiving.position.set(12, 0, 0);
-                                    goLiving.rotation.set(0, 0, 0.75);
-                                    scene.add(goLiving);
-                                    add_toRec(goLiving);
-                                    targetList.push(goLiving);
-                                    goBedroom1.position.set(0, 0, -12);
-                                    goBedroom1.rotation.set(0, -1.5, 2.5);
-                                    scene.add(goBedroom1);
-                                    add_toRec(goBedroom1);
-                                    targetList.push(goBedroom1);
-                                    goBedroom2.position.set(1, 0, 12);
-                                    goBedroom2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goBedroom2);
-                                    add_toRec(goBedroom2);
-                                    targetList.push(goBedroom2);
-                                    goBathroom2.position.set(-12, 0, 0);
-                                    goBathroom2.rotation.set(0, 0, 2.5);
-                                    scene.add(goBathroom2);
-                                    add_toRec(goBathroom2);
-                                    targetList.push(goBathroom2);
-                                    console.log(targetList[0].name);
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goHall2FB1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goHall2FBed2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Hall2.jpg')
+                                    });
+                                    current= hall2Pointers;
+                                    for (var i = 0; i< hall2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBedroom1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom1.jpg')
                                     });
-                                    Bedroom1visited = true;
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    scene.remove(goBedroom1);
-                                    targetList.pop(goBedroom1);
-                                    recRem(goBedroom1);
-                                    scene.remove(goBedroom2);
-                                    targetList.pop(goBedroom2);
-                                    recRem(goBedroom2);
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    goBathroom3.position.set(-4, 0, 17);
-                                    goBathroom3.rotation.set(1.5, 3.20, 0);
-                                    scene.add(goBathroom3);
-                                    add_toRec(goBathroom3);
-                                    targetList.push(goBathroom3);
-                                    goHall2.position.set(0, 0, 12);
-                                    goHall2.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    current= bedroom1Pointers;
+                                    for (var i = 0; i< bedroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBedroom2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom2.jpg')
                                     });
-                                    scene.remove(goLiving);
-                                    targetList.pop(goLiving);
-                                    recRem(goLiving);
-                                    scene.remove(goBedroom2);
-                                    targetList.pop(goBedroom2);
-                                    recRem(goBedroom2);
-                                    scene.remove(goBedroom1);
-                                    targetList.pop(goBedroom1);
-                                    recRem(goBedroom1);
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    goHall2.position.set(-3, 0, -12);
-                                    goHall2.rotation.set(0, 1.5, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    console.log(targetList[0].name);
+                                    current= bedroom2Pointers;
+                                    for (var i = 0; i< bedroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
+                                    break;
+                                case 'goBedroom1FB3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bedroom1.jpg')
+                                    });
+                                    current= bedroom1Pointers;
+                                    for (var i = 0; i< bedroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom2':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom2.jpg')
                                     });
-                                    Bathroom2visited = true;
-                                    scene.remove(goBathroom2);
-                                    targetList.pop(goBathroom2);
-                                    recRem(goBathroom2);
-                                    if (Hall2visited) {
-                                        scene.remove(goLiving);
-                                        targetList.pop(goLiving);
-                                        recRem(goLiving);
-                                        scene.remove(goBedroom2);
-                                        targetList.pop(goBedroom2);
-                                        recRem(goBedroom2);
-                                        scene.remove(goBedroom1);
-                                        targetList.pop(goBedroom1);
-                                        recRem(goBedroom1);
-                                        Hall2visited = false;
+                                    current= bathroom2Pointers;
+                                    for (var i = 0; i< bathroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
                                     }
-                                    goHall2.position.set(12, 0, 0);
-                                    goHall2.rotation.set(0, 0, 0.75);
-                                    scene.add(goHall2);
-                                    add_toRec(goHall2);
-                                    targetList.push(goHall2);
-                                    goBathroom1.position.set(2, 0, 12);
-                                    goBathroom1.rotation.set(0, -1.5, 0.75);
-                                    scene.add(goBathroom1);
-                                    add_toRec(goBathroom1);
-                                    targetList.push(goBathroom1);
-                                    console.log(targetList[0].name);
+                                    break;
+                                case 'goBathroom2FB3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
+                                    sphere.material = new THREE.MeshBasicMaterial({
+                                        map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom2.jpg')
+                                    });
+                                    current= bathroom2Pointers;
+                                    for (var i = 0; i< bathroom2Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom1':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom1.jpg')
                                     });
-                                    scene.remove(goBathroom1);
-                                    targetList.pop(goBathroom1);
-                                    recRem(goBathroom1);
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    goBathroom2.position.set(12, 0, 0);
-                                    goBathroom2.rotation.set(0, 0, 0.75);
-                                    scene.add(goBathroom2);
-                                    add_toRec(goBathroom2);
-                                    targetList.push(goBathroom2);
-                                    console.log(targetList[0].name);
+                                    current= bathroom1Pointers;
+                                    for (var i = 0; i< bathroom1Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 case 'goBathroom3':
+                                    for (var i = 0 ; i< current.length; i++){
+                                        scene.remove(current[i]);
+                                        targetList.pop(current[i]);
+                                        recRem(current[i]);
+                                    }
                                     sphere.material = new THREE.MeshBasicMaterial({
                                         map: THREE.ImageUtils.loadTexture('Foto/Appartamento1/Bathroom3.jpg')
                                     });
-                                    scene.remove(goBathroom3);
-                                    targetList.pop(goBathroom3);
-                                    recRem(goBathroom3);
-                                    scene.remove(goHall2);
-                                    targetList.pop(goHall2);
-                                    recRem(goHall2);
-                                    goBedroom1.position.set(12, 0, 0);
-                                    goBedroom1.rotation.set(0, 0, 0.75);
-                                    scene.add(goBedroom1);
-                                    add_toRec(goBedroom1);
-                                    targetList.push(goBedroom1);
-                                    console.log(targetList[0].name);
+                                    current= bathroom3Pointers;
+                                    for (var i = 0; i< bathroom3Pointers.length; i++){
+                                        scene.add(current[i]);
+                                        targetList.push(current[i]);
+                                        add_toRec(current[i]);
+                                    }
                                     break;
                                 default:
                                     ;
 
                             }
                         }
-                    }
+                    };
                             
                     
                 
@@ -746,21 +842,22 @@
                 var goBathroom1 = new THREE.Mesh(geometry, material);
                 var goBathroom3 = new THREE.Mesh(geometry, material);
                 var goLivingFH1 = new THREE.Mesh(geometry, material);
-                var goHallF4 = new THREE.Mesh(geometry, material);
-                var goHallFB1 = new THREE.Mesh(geometry, material);
-                var goHallFB2 = new THREE.Mesh(geometry, material);
+                var goHall1FK = new THREE.Mesh(geometry, material);
+                var goHall2FB1 = new THREE.Mesh(geometry, material);
                 var goHall2FB2 = new THREE.Mesh(geometry, material);
+                var goHall2FBed2 = new THREE.Mesh(geometry, material);
                 var goBathroom2FB3 = new THREE.Mesh(geometry, material);
                 var goLivingFH2 = new THREE.Mesh(geometry, material);
+                var goBedroom1FB3 = new THREE.Mesh(geometry, material);
                 
                 var livingPointers = [goHall1, goHall2];
                 var hall1Pointers = [goLivingFH1, goKitchen];
-                var kitchenPoninters = [goHallF4];
-                var bedroom1Pointers = [goHallFB1];
-                var bedroom2Pointers = [goHallFB2, goBathroom3];
-                var bathroom3Pointers = [goBedroom2];
+                var kitchenPointers = [goHall1FK];
+                var bedroom1Pointers = [goHall2FB1, goBathroom3];
+                var bedroom2Pointers = [goHall2FBed2];
+                var bathroom3Pointers = [goBedroom1FB3];
                 var bathroom2Pointers = [goHall2FB2, goBathroom1];
-                var bathroom3Pointers = [goBathroom2FB3];
+                var bathroom1Pointers = [goBathroom2FB3];
                 var hall2Pointers = [goLivingFH2, goBedroom1, goBedroom2, goBathroom2];
                 
 
@@ -793,12 +890,42 @@
                 goBathroom1.name = 'goBathroom1';
                 goBathroom3.name = 'goBathroom3';
                 goLivingFH1.name = 'goLivingFH1';
-                goHallF4.name = 'goHallF4';
-                goHallFB1.name = 'goHallFB1';
-                goHallFB2.name = 'goHallFB2';
+                goHall1FK.name = 'goHall1FK';
+                goHall2FB1.name = 'goHall2FB1';
                 goHall2FB2.name = 'goHall2FB2';
+                goHall2FBed2.name = 'goHall2FBed2';
                 goBathroom2FB3.name = 'goBathroom2FB3';
                 goLivingFH2.name = 'goLivingFH2';
+                goBedroom1FB3.name = 'goBedroom1FB3';
+                goLivingFH1.position.set(12, 0, 0);
+                goLivingFH1.rotation.set(0, 0, 0.75);
+                goHall1FK.position.set(12, 0, 0);
+                goHall1FK.rotation.set(0, 0, 0.75);
+                goLivingFH2.position.set(12, 0, 0);
+                goLivingFH2.rotation.set(0, 0, 0.75);
+                goBedroom1.position.set(0, 0, -12);
+                goBedroom1.rotation.set(0, 1.6, 0.75);
+                goBedroom2.position.set(3, 0, 12);
+                goBedroom2.rotation.set(0, 1.6, 2.5);
+                goBathroom2.position.set(-12, 0, 0);
+                goBathroom2.rotation.set(0, 0, 2.5);
+                goHall2FB2.position.set(12, 0, -0.5);
+                goHall2FB2.rotation.set(0, 0, 0.75);
+                goBathroom1.position.set(3, 0, 12);
+                goBathroom1.rotation.set(0, 1.8, 2.5);
+                goBathroom2FB3.position.set(12, 0, 0);
+                goBathroom2FB3.rotation.set(0, 0, 0.75);
+                goHall2FBed2.position.set(-3, 0, -12);
+                goHall2FBed2.rotation.set(0, 1.5, 0.75);
+                goHall2FB1.position.set(1, 0, 17);
+                goHall2FB1.rotation.set(0, 1.5, 2.5);
+                goBathroom3.position.set(-2.36, 0, 15);
+                goBathroom3.rotation.set(1.5, 0, 2.9);
+                goBedroom1FB3.position.set(10, 0, 0);
+                goBedroom1FB3.rotation.set(0, 0, 0.75);
+                
+                
+                
                 
                 
 
@@ -823,7 +950,19 @@
                 scene.add(goHall2);
                 targetList.push(goHall2);
                 window.addEventListener('mousedown',function (){ changePhoto("null");}, false);
-                function add_toRec(object) {
+                
+
+                console.log(targetList[0].name);
+                console.log(toString.isMobile);
+
+
+
+                document.addEventListener('mousemove', onMouseMove, false);
+                window.addEventListener('resize', resize, false);
+                setTimeout(resize, 1);
+            }
+            
+            function add_toRec(object) {
                     Reticulum.add(object, {
                         clickCancelFuse: true, // Overrides global setting for fuse's clickCancelFuse
                         reticleHoverColor: 0x00fff6, // Overrides global reticle hover color
@@ -853,16 +992,6 @@
                     Reticulum.remove(object);
                 }
 
-                console.log(targetList[0].name);
-                console.log(toString.isMobile);
-
-
-
-                document.addEventListener('mousemove', onMouseMove, false);
-                window.addEventListener('resize', resize, false);
-                setTimeout(resize, 1);
-            }
-
             function resize() {
                 var width = container.offsetWidth;
                 var height = container.offsetHeight;
@@ -879,7 +1008,8 @@
 
             function update(dt) {
                 resize();
-
+                // create an array containing all objects in the scene with which the ray intersects
+                intersects = raycaster.intersectObjects(targetList);
                 camera.updateProjectionMatrix();
                 if (isMobile)
                     Reticulum.update();
@@ -888,9 +1018,8 @@
 
             function render(dt) {
                 raycaster.setFromCamera(mouse, camera);
-
-                // create an array containing all objects in the scene with which the ray intersects
-                intersects = raycaster.intersectObjects(targetList);
+                
+                
                 if (isMobile)
                     effect.render(scene, camera);
                 else
