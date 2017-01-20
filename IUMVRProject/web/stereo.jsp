@@ -48,7 +48,10 @@
   <body>
     <div id="box">
         <%@ include file="blocchi_dinamici/header.jsp" %>      
-    </div>  
+    </div>
+    <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 600px; width: 230px">
+        <%@ include file="blocchi_dinamici/gallery.jsp"%>
+    </div>
     <section id="TourVR">
         
             <div id="example">
