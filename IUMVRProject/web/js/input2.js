@@ -204,6 +204,7 @@
       // altrimenti  visualizza un messaggio di errore
       else{
           document.getElementById("errormsg").style.visibility = 'visible';
+          document.getElementById("errormsg").style.display = 'block';
       }
       return false;
 

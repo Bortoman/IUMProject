@@ -76,20 +76,21 @@
         
      <!--<h1>Città selezionata ${nome_citta}</h1> -->
      
-      
-     <div id="search_results" class="allinea">
-         <div id="result1">
-             <img src="img/ap1.jpg" alt="info+.jsp" width="200" height="200" style="float: left;">
-             <p>Nome</p>
-             <p>Dove</p>
-             <p>Stelle</p>
-             <p>Prezzo</p>
-         </div>
-     </div>
-     
-     <div id="right_section" class="allinea">
-         Mappa
-     </div>
+          <div class="allinea">
+            <div id="search_results">
+                <div id="result1">
+                    <img src="img/ap1.jpg" alt="info+.jsp" width="200" height="200" style="float: left;">
+                    <p>Nome</p>
+                    <p>Dove</p>
+                    <p>Stelle</p>
+                    <p>Prezzo</p>
+                </div>
+            </div>
+
+            <div id="right_section">
+                Mappa
+            </div>
+          </div>
         
         
         <!--<div id="infobox">

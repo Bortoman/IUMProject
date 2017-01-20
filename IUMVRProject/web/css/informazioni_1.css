@@ -380,19 +380,25 @@ float: left;}
 
 
 .allinea{
+    
     display: inline-block; 
+    width: 95%;
     border: 1px solid black; 
     margin: 5px;
 }
 
 #search_results{
+    display: inline-block;
     background-color: red;
     width: 60%;
 }
 
 #right_section{
+    position:relative;
+    display: inline-block;
+    top: 0px;
     background-color:green;
-    width: 34%;
+    width: 30%;
 }
 
 /*
