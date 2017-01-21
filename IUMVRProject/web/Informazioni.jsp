@@ -73,7 +73,7 @@
                         
                 <div id="slider1">
                  <div class="sliderprezzo" style="width: 100%;">
-                    Prezzo<span class="sliderprezzo1" id="test">
+                    Prezzo<span class="sliderprezzo1">
                         <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" onmouseup="filtra();"/>
                     </span>
                 </div>
