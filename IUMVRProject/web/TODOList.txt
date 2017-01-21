@@ -1,4 +1,5 @@
 -Menù funzionante FATTOOOO
 -Risistemare i tour FATTOOO
--Fare secondo tour
+-Fare secondo tour FATTOOOOO
 -Finire pagina coi filtri
+-Mobile CSS
