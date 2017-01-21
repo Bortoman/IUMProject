@@ -51,7 +51,7 @@
                 background: rgba(2,2,2,0.7);
                 height: 200px;
                 width: 100%;
-                position:relative;
+                position: relative;
                 top:-200px;
             }
             .InfoSmall{
@@ -68,6 +68,209 @@
                 top: 80%;
                 left: 50px;
             }
+            #gallery{
+                overflow:scroll; 
+                position: absolute; 
+                right: 0px; 
+                height: 720px; 
+                width: 230px; 
+                z-index: 2;
+            }
+            
+            @media only screen and (max-width: 768px) and (min-width: 480px){
+                body{
+                    overflow:visible;
+                }
+                #TourVR{
+                    width: 100%;
+                    height: 720px;
+                }
+                .startTour{
+                    background: black;
+                    width:100%;
+                    height:100%;
+
+                }
+                #startTourIMG{
+                    position: absolute;
+                    cursor: pointer;
+                    top:230px;
+                    left:37%;
+                    z-index: 8;
+
+                }
+
+                #example {
+                    opacity: 0.4;
+                    width: 100%;
+                    height: 100%;
+                    /*position: absolute;
+
+                    top:0;
+                    right:0;
+                    left: 0;
+                    bottom:0;*/
+                }
+                .InfoBig{
+                    background: white;
+                    height: 500px;
+                    width: 100%;
+                    position: relative;
+                    top: 0;
+                }
+                .InfoSmall{
+                    display: none;
+                    
+                }
+                .InfoSmall button{
+                    position: relative;
+                    top: 80%;
+                    left: 50px;
+                }
+                #gallery{
+                overflow-x: scroll;
+                overflow-y: hidden;
+                position: absolute; 
+                bottom: -18px;
+                height: 150px; 
+                width: 100%; 
+                z-index: 2;
+                
+                }
+                #galleryBackground{
+                    position: relative;
+                     
+                     
+                    background-color: white;
+                    height: 150px;
+                    width: 100%;
+                }
+                #galleryBackground ul{
+                    white-space: nowrap;
+                    list-style: none;
+                    padding-left: 5px; 
+                    background-color: white; 
+                    cursor:pointer;
+                }
+                #galleryBackground li{
+                    display: inline-block;
+                }
+            }
+            
+            @media only screen and (max-width: 480px){
+                body{
+                    overflow:visible;
+                }
+                #TourVR{
+                    width: 100%;
+                    height: 720px;
+                }
+                .startTour{
+                    background: black;
+                    width:100%;
+                    height:100%;
+
+                }
+                #startTourIMG{
+                    position: absolute;
+                    cursor: pointer;
+                    top:230px;
+                    left:37%;
+                    z-index: 8;
+
+                }
+
+                #example {
+                    opacity: 0.4;
+                    width: 100%;
+                    height: 100%;
+                    /*position: absolute;
+
+                    top:0;
+                    right:0;
+                    left: 0;
+                    bottom:0;*/
+                }
+                .InfoBig{
+                    background: white;
+                    height: 500px;
+                    width: 100%;
+                    position: relative;
+                    top: 0;
+                }
+                .InfoSmall{
+                    display: none;
+                    
+                }
+                .InfoSmall button{
+                    position: relative;
+                    top: 80%;
+                    left: 50px;
+                }
+                #gallery{
+                display: none;
+                
+                }
+                /* The switch - the box around the slider */
+                .switch {
+                  position: relative;
+                  display: inline-block;
+                  width: 60px;
+                  height: 34px;
+                }
+
+                /* Hide default HTML checkbox */
+                .switch input {display:none;}
+
+                /* The slider */
+                .slider {
+                  position: absolute;
+                  cursor: pointer;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background-color: #ccc;
+                  -webkit-transition: .4s;
+                  transition: .4s;
+                }
+
+                .slider:before {
+                  position: absolute;
+                  content: "";
+                  height: 26px;
+                  width: 26px;
+                  left: 4px;
+                  bottom: 4px;
+                  background-color: white;
+                  -webkit-transition: .4s;
+                  transition: .4s;
+                }
+
+                input:checked + .slider {
+                  background-color: #2196F3;
+                }
+
+                input:focus + .slider {
+                  box-shadow: 0 0 1px #2196F3;
+                }
+
+                input:checked + .slider:before {
+                  -webkit-transform: translateX(26px);
+                  -ms-transform: translateX(26px);
+                  transform: translateX(26px);
+                }
+
+                /* Rounded sliders */
+                .slider.round {
+                  border-radius: 34px;
+                }
+
+                .slider.round:before {
+                  border-radius: 50%;
+                }
+                
+            }
             
         </style>
     </head>
@@ -75,7 +278,7 @@
         <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
-        <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 720px; width: 230px; z-index: 2">
+        <div id="gallery">
             <%@ include file="blocchi_dinamici/gallery.jsp"%>
         </div>
         <section id="TourVR">
@@ -85,6 +288,11 @@
             <div id="example">
                
             </div>
+                    <div id='carboardToggle'>
+                        <div id='switch'>
+                            
+                        </div>
+                    </div>
             <div class="InfoBig">
 
                 <div class="InfoSmall">

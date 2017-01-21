@@ -9,7 +9,7 @@
     <header id="header">
     <div id="header_box">  
        <ul>
-        <li style="float: left; margin-top: 5px; margin-left: 100px">
+        <li style="float: left; margin-top: 5px; margin-left: 5px">
             <img src="img/logo.png" alt="logo" width="50" height="50">
         </li>
        <!-- con il float right me li visualizza al contrario?!-->
