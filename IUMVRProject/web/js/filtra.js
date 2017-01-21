@@ -6,7 +6,7 @@
 
 function filtra() {
     var x = document.getElementById("sliderprezzo").value; 
-    console.log(x);
+    x = $("#SliderPrezzo").slider("value");
     if (x > 150000){
         document.getElementById("on_off_480table").style.visibility = 'hidden';
     }

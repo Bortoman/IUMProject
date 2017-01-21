@@ -74,11 +74,29 @@
                 <div id="slider1">
                  <div class="sliderprezzo" style="width: 100%;">
                     Prezzo<span class="sliderprezzo1">
-                        <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" onmouseup="filtra();"/>
+                        <input id="SliderPrezzo" type="text" name="price" value="1000;1000000"/>
                     </span>
                 </div>
-                <script type="text/javascript" charset="utf-8">
-                    jQuery("#SliderPrezzo").slider({from: 1000, to: 1000000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;€', skin: "round_plastic"});
+                <script type="text/javascript">
+                    $(function(){
+                        ("#SliderPrezzo").slider({
+                        range: true,
+                        min: 1000, 
+                        max: 1000000, 
+                        values: [50,50000], 
+                       /* step: 1000, 
+                        dimension: '&nbsp;€', 
+                        skin: "round_plastic", */
+                        slide: function(){
+                            var x = document.getElementById("SliderPrezzo").value; 
+                            x = $("#SliderPrezzo").slider("value");
+                            if (x > 150000){
+                                document.getElementById("on_off_480table").style.visibility = 'hidden';
+                            }
+                        }
+    });
+                        
+                    });
                 </script>
 
                 <div class="slidermetratura" style="width: 100%;">
