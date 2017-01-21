@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Admin
 */
 
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+/*@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');*/
 
 body{
     margin: 0;
@@ -338,9 +338,9 @@ body{
     }
 
     #searchfield form .biginput {
-        width: 300px;
-        height: 30px;
-        padding: none;
+        width: 75%;
+        height: 90%;
+        padding: 0;
         background-color: #fff;
         border: 1px solid #c8c8c8;
         font-size: 1.5em;
@@ -394,18 +394,25 @@ body{
 
     .submit {
         float: left;
-        width: 30px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         margin-left: auto;
         padding: 0;
         cursor: pointer;
         border: 0px solid #000;
-        background: url(../img/magnifier.png) 10px 3px no-repeat;
+        background: url(../img/magnifier.png) 20px 6px no-repeat;
         background-size: 22px 22px;
         background-position: 10px 10px;
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px; 
         border-radius: 6px;
         outline: none;
+    }
+
+    #description{
+        text-align: center;
+        margin-top: 0px;
+        color: black;
+        background-color: white;
     }
 }
