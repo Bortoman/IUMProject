@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HiFi-Rooms</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="css/informazioni_1.css">
+  <link rel="stylesheet" href="css/informazioni.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/occorrenze.js"></script>
@@ -93,11 +93,15 @@
            <!-- <h1 id="cliente_title_480table">Carrello</h1>-->
             <table id="on_off_480table">
                 <tr>
-                <th rowspan="5"><img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="330" height="260"></th>
+                <th rowspan="5">
+                <a href="stereo.jsp">    
+                <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="330" height="285">
+                </a>
+                </th>
                 <td>Indirizzo: Via Ospedale, 72</td>
                 </tr>
                 <tr>
-                <td>Dove: Cagliari</td>
+                <td>Dove: ${nome_citta}</td>
                 </tr>
                 <tr>
                 <td>Metratura: 100 mq</td>
@@ -106,17 +110,21 @@
                 <td>Prezzo: 150.000 €</td>
                 </tr>
                 <tr>
-                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>
+                <td><button class="bottoneinfo" onclick="location.href='stereo.jsp'" title="Visualizza informazioni">Dettagli</button></td>
                 </tr>
             </table>
                 <!-- prova con due elementi -->
-            <table id="on_off_480table">
+            <table id="on_off_480table2">
                 <tr>
-                <th rowspan="5"><img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="330" height="260"></th>
+                <th rowspan="5">
+                    <a href="stereo.jsp">
+                    <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="330" height="285">
+                    </a>
+                </th>
                 <td>Indirizzo: Viale Trieste, 1</td>
                 </tr>
                 <tr>
-                <td>Dove: Cagliari</td>
+                <td>Dove: ${nome_citta}</td>
                 </tr>
                 <tr>
                 <td>Metratura: 120 mq</td>
@@ -125,7 +133,7 @@
                 <td>Prezzo: Sempre €</td>
                 </tr>
                 <tr>
-                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Dettagli</button></td>
+                <td><button class="bottoneinfo" onclick="location.href='stereo.jsp'" title="Visualizza informazioni">Dettagli</button></td>
                 </tr>
             </table>
         </div>
@@ -136,17 +144,6 @@
                 
           </div>
         
-        
-        <!--<div id="infobox">
-                
-            <div id="search_results" class="test">
-            Risultati
-            </div>
-     
-            <div id="right_section" class="test">
-            Mappa
-            </div>
-            </div>-->
         
     </div>
      <!--<div style="clear:both;"></div>-->
