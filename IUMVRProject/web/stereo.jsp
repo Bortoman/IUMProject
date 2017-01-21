@@ -29,9 +29,11 @@
             }
             #startTourIMG{
                 position: absolute;
+                cursor: pointer;
                 top:230px;
                 left:37%;
                 z-index: 8;
+                
             }
             
             #example {

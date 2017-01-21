@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="css/style2.css">
+        
         <style>
             /*TOURVR*/
             body{
@@ -32,6 +33,7 @@
                 top:230px;
                 left:37%;
                 z-index: 8;
+                cursor: pointer;
             }
             
             #example {
