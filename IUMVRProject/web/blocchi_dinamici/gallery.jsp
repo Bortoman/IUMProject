@@ -8,8 +8,9 @@
 <div id="galleryBackground" style="position: absolute; right: 0px; height: 100%; width: 100%; background-color: white">
     <ul style="list-style: none; padding-left: 5px; background-color: white">
         <li>
-            <a href="#" onclick="changePhoto('goBathroom1');"> <img src="Foto/Appartamento1/Bathroom1.jpg" alt="Bathroom1" width="200" height="150"
-                                                                    ></a>
+            <a href="#" onclick="changePhoto('goBathroom1');"> 
+                <img src="Foto/Appartamento1/Bathroom1.jpg" alt="Bathroom1" width="200" height="150">
+            </a>
         </li>
         <li>
             <img src="Foto/Appartamento1/Bathroom2.jpg" alt="Bathroom2" width="200" height="150"

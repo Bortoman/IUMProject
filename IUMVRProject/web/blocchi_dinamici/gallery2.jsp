@@ -1,0 +1,32 @@
+<%-- 
+    Document   : gallery
+    Created on : 20-gen-2017, 11.40.40
+    Author     : Mattia
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<div id="galleryBackground" style="position: absolute; right: 0px; height: 100%; width: 100%; background-color: white">
+    <ul style="list-style: none; padding-left: 5px; background-color: white">
+        <li>
+            <a href="#" onclick="changePhoto('goBathroom');"> 
+                <img src="Foto/Appartamento2/Bathroom.jpg" alt="Bathroom" width="200" height="150">
+            </a>
+        </li>
+        <li>
+            <img src="Foto/Appartamento2/Bedroom.jpg" alt="Bedroom" width="200" height="150"
+                 onclick="changePhoto('goBedroom');">
+        </li>
+        <li>
+            <img src="Foto/Appartamento2/Hall1.jpg" alt="Hall1" width="200" height="150"
+                 onclick="changePhoto('goHall1FH2');">
+        </li>
+        <li>
+            <img src="Foto/Appartamento2/Hall2.jpg" alt="Hall2" width="200" height="150"
+                 onclick="changePhoto('goHall2FH1');">
+        </li>
+        <li>
+            <img src="Foto/Appartamento2/Kitchen.jpg" alt="Kitchen" width="200" height="150"
+                 onclick="changePhoto('goKitchen');">
+        </li>
+    </ul>
+</div>
