@@ -21,9 +21,29 @@
                 width: 100%;
                 height: 720px;
             }
+            .startTour{
+                background: black;
+                width:100%;
+                height:100%;
+                
+            }
+            #startTourIMG{
+                position: absolute;
+                top:230px;
+                left:37%;
+                z-index: 8;
+            }
+            
             #example {
+                opacity: 0.4;
                 width: 100%;
                 height: 100%;
+                /*position: absolute;
+                
+                top:0;
+                right:0;
+                left: 0;
+                bottom:0;*/
             }
             .InfoBig{
                 background: rgba(2,2,2,0.7);
@@ -46,6 +66,7 @@
                 top: 80%;
                 left: 50px;
             }
+            
         </style>
     </head>
     <body>
@@ -56,9 +77,11 @@
             <%@ include file="blocchi_dinamici/gallery.jsp"%>
         </div>
         <section id="TourVR">
-
+            
+            <div class="startTour">
+                    <a id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
             <div id="example">
-
+               
             </div>
             <div class="InfoBig">
 
@@ -68,6 +91,7 @@
                     </button>
                 </div>
             </div>
+            </div>
         </section>
 
         <script src="js/three.min.js" type="text/javascript"></script>
@@ -75,6 +99,8 @@
         <script src="js/DeviceOrientationControls.js" type="text/javascript"></script>
         <script src="js/OrbitControls.js" type="text/javascript"></script>
         <script src="js/reticulum.js" type="text/javascript"></script>
+        <script src="js/startTour.js" type="text/javascript"></script>
+        
         <script>
             var camera, pointer, scene, renderer;
             var raycaster = new THREE.Raycaster();
@@ -87,7 +113,7 @@
             var Bathroom2visited = false;//TODO Aggiungere puntatori per ogni stanza aka 2 per porta (entra/esci) per la gestione automatica
             var targetList = [];
             var projector;
-            var intersects;
+            var intersecati = [];
             var current= [];
             projector = new THREE.Projector();
             var clock = new THREE.Clock();
@@ -114,6 +140,7 @@
                     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
                     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
                 }
+                
                 
 
             function init() {
@@ -216,12 +243,12 @@
                     //   and direction into the scene (camera direction)
                     //   
                     // if there is one (or more) intersections
-                    console.log(intersects);
-                    if (nomeFoto === "null" &&  intersects !== undefined) {
+                    
+                    if (nomeFoto === "null" &&  intersecati !== undefined) {
                         
-                    if (intersects.length > 0)
+                    if (intersecati.length > 0)
                     {
-                        console.log("Hit @ " + intersects[0].object.name);
+                        console.log("Hit @ " + intersecati[0].object.name);
                         // change the color of the closest face.
                         /*if (intersects[0].object.name === "goHall1"){
                          sphere.material = new THREE.MeshBasicMaterial({
@@ -233,7 +260,7 @@
                          }
                          */
 
-                            switch (intersects[0].object.name) {
+                            switch (intersecati[0].object.name) {
                                 case 'goHall1':
                                     for (var i = 0 ; i< current.length; i++){
                                         scene.remove(current[i]);
@@ -949,7 +976,7 @@
                 targetList.push(goHall1);
                 scene.add(goHall2);
                 targetList.push(goHall2);
-                window.addEventListener('mousedown',function (){ changePhoto("null");}, false);
+                
                 
 
                 console.log(targetList[0].name);
@@ -957,7 +984,8 @@
 
 
 
-                document.addEventListener('mousemove', onMouseMove, false);
+                window.addEventListener('mousemove', onMouseMove, false);
+                window.addEventListener('mousedown',function (){ changePhoto("null");}, false);
                 window.addEventListener('resize', resize, false);
                 setTimeout(resize, 1);
             }
@@ -980,7 +1008,7 @@
                         onGazeLong: function () {
                             // do something user targetes object for specific time
                             this.material.emissive.setHex(0x0000cc);
-                            changePhoto("null");
+                            changePhoto(object.name);
                         },
                         onGazeClick: function () {
                             // have the object react when user clicks / taps on targeted object
@@ -991,6 +1019,43 @@
                 function recRem(object) {
                     Reticulum.remove(object);
                 }
+                
+            function update(dt) {
+                resize();
+                // create an array containing all objects in the scene with which the ray intersects
+                var intersects = raycaster.intersectObjects( scene.children );
+                intersecati= intersects;
+                
+                camera.updateProjectionMatrix();
+                if (isMobile)
+                    Reticulum.update();
+                controls.update(dt);
+                
+            }
+
+            function render(dt) {
+                
+                
+                // update the picking ray with the camera and mouse position
+                raycaster.setFromCamera( mouse, camera );
+
+                // calculate objects intersecting the picking ray
+               
+
+                for ( var i = 0; i < intersecati.length; i++ ) {
+
+                    intersecati[ i ].object.material.color.set( 0xff0000 );
+
+                }
+                
+                if (isMobile)
+                    effect.render(scene, camera);
+                else
+                    renderer.render(scene, camera);
+                
+                
+
+            }
 
             function resize() {
                 var width = container.offsetWidth;
@@ -1006,26 +1071,7 @@
                     renderer.setSize(width, height);
             }
 
-            function update(dt) {
-                resize();
-                // create an array containing all objects in the scene with which the ray intersects
-                intersects = raycaster.intersectObjects(targetList);
-                camera.updateProjectionMatrix();
-                if (isMobile)
-                    Reticulum.update();
-                controls.update(dt);
-            }
-
-            function render(dt) {
-                raycaster.setFromCamera(mouse, camera);
-                
-                
-                if (isMobile)
-                    effect.render(scene, camera);
-                else
-                    renderer.render(scene, camera);
-
-            }
+            
 
             function animate(t) {
                 requestAnimationFrame(animate);
