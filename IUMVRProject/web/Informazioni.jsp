@@ -14,12 +14,17 @@
   <title>HiFi-Rooms</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="css/informazioni.css">
+  
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDg4X8LoGc7MyqfSfylrH6BBLw5gYKEiec&callback=initMap"></script>
+
+  
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/occorrenze.js"></script>
   <script src="js/input.js"></script>
+  <script src="js/maps.js"></script>
 </head>
-<body>
+<body onload="initialize()">
     
     <div id="box">
         <%@ include file="blocchi_dinamici/header.jsp" %>      
@@ -117,7 +122,7 @@
             <table id="on_off_480table2">
                 <tr>
                 <th rowspan="5">
-                    <a href="stereo.jsp">
+                    <a href="CasaMia.jsp">
                     <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="330" height="285">
                     </a>
                 </th>
@@ -133,13 +138,14 @@
                 <td>Prezzo: Sempre €</td>
                 </tr>
                 <tr>
-                <td><button class="bottoneinfo" onclick="location.href='stereo.jsp'" title="Visualizza informazioni">Dettagli</button></td>
+                <td><button class="bottoneinfo" onclick="location.href='CasaMia.jsp'" title="Visualizza informazioni">Dettagli</button></td>
                 </tr>
             </table>
         </div>
 
             <div id="right_section">
-                Mappa
+                
+                <div id="gmaps-canvas"></div>
             </div>
                 
           </div>
