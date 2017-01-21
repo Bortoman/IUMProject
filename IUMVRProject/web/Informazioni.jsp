@@ -15,14 +15,13 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="css/informazioni.css">
 
-        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDg4X8LoGc7MyqfSfylrH6BBLw5gYKEiec&callback=initMap"></script>
-
 
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script src="js/occorrenze.js"></script>
         <script src="js/input.js"></script>
         <script src="js/maps.js"></script>
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDg4X8LoGc7MyqfSfylrH6BBLw5gYKEiec&callback=initMap"></script>
 
 
         <!-- bin/jquery.slider.min.css -->
@@ -33,7 +32,6 @@
         <link rel="stylesheet" href="css/jslider.round.plastic.css" type="text/css">
         <!-- end -->
 
-        <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 
         <!-- bin/jquery.slider.min.js -->
         <script type="text/javascript" src="js/jshashtable-2.1_src.js"></script>
@@ -71,26 +69,29 @@
 
                     </form>
                 </div>    
+                        
+                <div id="slider1">
+                 <div class="sliderprezzo" style="width: 100%;">
+                    Prezzo<span class="sliderprezzo1">
+                        <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" />
+                    </span>
+                </div>
+                <script type="text/javascript" charset="utf-8">
+                    jQuery("#SliderPrezzo").slider({from: 1000, to: 1000000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;€', skin: "round_plastic"});
+                </script>
 
-                <!--
-                   <select class="selectmenu">
-                   <option value="min">Min Price</option>
-                   <option value="200">200</option>
-                   <option value="300">300</option>
-                   <option value="400">400</option>
-                   <option value="500">500</option>
-                   </select>  
-                   
-                   <select class="selectmenu">
-                   <option value="max">Max Price</option>
-                   <option value="200">200</option>
-                   <option value="300">300</option>
-                   <option value="400">400</option>
-                   <option value="500">500</option>
-                   </select>
+                <div class="slidermetratura" style="width: 100%;">
+                    Metratura<span class="slidermetratura1" >
+                        <input id="SliderMetratura" type="slider" name="area" value="0;500" />
+                    </span>
+                </div>
+                <script type="text/javascript" charset="utf-8">
+                    jQuery("#SliderMetratura").slider({from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "round_plastic"});
+                </script>
+                </div>
                 
-                -->
-                   
+                
+                <div id="menu">
                    <select class="selectmenu">                       
                    <option value="Popolarita">Popolarità</option>
                    <option value="Alfabetico+">Alfabetico: crescente</option>
@@ -100,29 +101,11 @@
                    <option value="Metratura+">Metratura: crescente</option>
                    <option value="Metratura-">Metratura: decrescente</option>
                    </select>
+                </div>
+                
                  
 
             </div>
-            <div class="layout"
-                 <div class="layout-slider" style="width: 100%;">
-                    Prezzo<span style="display: inline-block; width: 400px; padding: 0 5px;">
-                        <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" />
-                    </span>
-                </div>
-                <script type="text/javascript" charset="utf-8">
-                    jQuery("#SliderPrezzo").slider({from: 1000, to: 1000000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;€', skin: "round_plastic"});
-                </script>
-
-                <div class="layout-slider" style="width: 100%;">
-                    Metratura<span style="display: inline-block; width: 400px; padding: 0 5px;">
-                        <input id="SliderMetratura" type="slider" name="area" value="0;500" />
-                    </span>
-                </div>
-                <script type="text/javascript" charset="utf-8">
-                    jQuery("#SliderMetratura").slider({from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "round_plastic"});
-                </script>
-            </div>
-        </div> 
 
         <div class="isa_warning" id="errormsg" style="display:none;">
             <i class="fa fa-warning" id="altboing"></i>
@@ -150,7 +133,7 @@
                     <tr>
                         <th rowspan="5">
                             <a href="stereo.jsp">    
-                                <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="330" height="285">
+                                <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="475" height="285">
                             </a>
                         </th>
                         <td>Indirizzo: Via Ospedale, 72</td>
@@ -173,7 +156,7 @@
                     <tr>
                         <th rowspan="5">
                             <a href="CasaMia.jsp">
-                                <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="330" height="285">
+                                <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="475" height="285">
                             </a>
                         </th>
                         <td>Indirizzo: Viale Trieste, 1</td>
