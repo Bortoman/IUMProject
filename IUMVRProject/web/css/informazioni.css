@@ -294,7 +294,7 @@ float: left;}
 /* messaggio di warning */
 
 .isa_warning{
-    padding: 10px;
+    padding: 5px;
     color: #9F6000;
     background-color: #FEEFB3;
     margin-left: auto;
@@ -303,7 +303,7 @@ float: left;}
     margin-top: 5px;
     width: 52%;
     border-radius: 3px;
-    font-size: 19px;
+    font-size: 15px;
     border: 1px solid;
     visibility: hidden;
 }
@@ -528,7 +528,7 @@ float: left;}
     /* testo + slider prezzo */
     .sliderprezzo{
         margin-bottom: 14px;
-        margin-left: 2px;
+        margin-left: 3px;
     }
     
     /* solo slider prezzo */

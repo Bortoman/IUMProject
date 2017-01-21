@@ -20,6 +20,7 @@
         <script src="js/jquery-ui.js"></script>
         <script src="js/occorrenze.js"></script>
         <script src="js/input.js"></script>
+        <script src="js/filtra.js"></script>
         <script src="js/maps.js"></script>
         <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDg4X8LoGc7MyqfSfylrH6BBLw5gYKEiec&callback=initMap"></script>
 
@@ -72,8 +73,8 @@
                         
                 <div id="slider1">
                  <div class="sliderprezzo" style="width: 100%;">
-                    Prezzo<span class="sliderprezzo1">
-                        <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" />
+                    Prezzo<span class="sliderprezzo1" id="test">
+                        <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000" onmouseup="filtra();"/>
                     </span>
                 </div>
                 <script type="text/javascript" charset="utf-8">
