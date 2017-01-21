@@ -154,8 +154,8 @@ body{
               
 /* lunghezza form */           
 .form-container {
-	width: 294px;
-	height: 30px;
+	width: 310px;
+	height: 33px;
 	margin: 120px auto 0 auto;
 	padding: 0;
 	overflow: hidden;
@@ -177,7 +177,7 @@ body{
 .submit-container {
 	float: right;
 	width: 40px;
-	height: 30px;
+	height: 31px;
 	margin: 0px 0 0 0px;
 	padding: 0;
 	cursor: pointer;
@@ -245,8 +245,9 @@ body{
 /*posizione barra di ricerca */
 #searchfield { 
 
-width: 200px; /* larghezza barra di ricerca */
+width: 240px; /* larghezza barra di ricerca */
 text-align: left; 
+margin-top: 8px;
 margin-bottom: 15px; 
 margin-left: 20px;
 float: left;}
@@ -263,8 +264,8 @@ float: left;}
 }
 
 #searchfield form .biginput {
-  width: 200px; /* larghezza barra di ricerca */
-  height: 30px;
+  width: 215px; /* larghezza barra di ricerca */
+  height: 31px;
   padding: 0 35px 0 10px;
   background-color: #fff;
   border: 1px solid #c8c8c8;
@@ -327,9 +328,9 @@ float: left;}
 #info{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    width: 80%;
-    height: 500px;
+    margin-top: 0px;
+    width: 95%;
+    height: 570px;
     border:1px solid black; 
     background-color: white;
     font-size: 10px;
@@ -340,8 +341,9 @@ float: left;}
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 52px;
-    background-color: orange;
+    height: 77px;
+    background-color: #eef0f7;
+    display: inline-block;
 
     /*padding: 10px; check here */ 
     
@@ -382,10 +384,11 @@ float: left;}
 .allinea{
     
     display: inline-block; 
-    width: 95%;
+    width: 98%;
     height: 75%;
     border: 1px solid black; 
     position: relative;
+    margin-top: 10px;
 
 }
 
@@ -408,14 +411,14 @@ float: left;}
     display: inline-block;
     top: 0px;
     width: 34%;
-    height: 375px;
+    height: 450px;
     float: right;
 }
 
 #gmaps-canvas {
 	
 		width: 100%;	
-		height: 375px;
+		height: 428px;
 	}
 
 /* struttura tabella */
@@ -470,7 +473,7 @@ float: left;}
         width: 315px; /* lunghezza campi */
         padding: 3px;
         text-align: center;
-        /*border: 1px solid gainsboro;*/
+        border: 1px solid gainsboro;
         font-size: 13px;
     }
     
@@ -511,3 +514,46 @@ float: left;}
       background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
     }
  
+    /* slider */
+    
+     
+    #slider1{
+        float: left;
+        margin-left: 120px;
+        margin-top: 13px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    /* testo + slider prezzo */
+    .sliderprezzo{
+        margin-bottom: 14px;
+        margin-left: 2px;
+    }
+    
+    /* solo slider prezzo */
+    .sliderprezzo1{
+        display: inline-block; 
+        width: 400px; 
+        padding: 0 5px;
+        margin-left: 38px;
+    }
+    
+        /* testo + slider metratura */
+    .slidermetratura{
+        margin-left: 3px;
+    }
+    
+      /* solo slider metratura */
+    .slidermetratura1{
+        display: inline-block; 
+        width: 400px; 
+        padding: 0 5px;
+        margin-left: 15px;
+    }
+   
+    
+    #menu{
+        margin-top: 8px;
+    }
+    

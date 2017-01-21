@@ -19,13 +19,15 @@
     var marker = new google.maps.Marker({
         position: myLatLng, 
         map: map,
-        title:"Mi trovo a Cagliari, nei pressi di Via Ospedale 72"
+        title:"Mi trovo a Cagliari, nei pressi di Via Ospedale 72",
+        url: 'stereo.jsp'
     });
     
     var marker1 = new google.maps.Marker({
         position: myLatLng1, 
         map: map,
-        title:"Mi trovo a Cagliari, nei pressi di Via Trieste 1"
+        title:"Mi trovo a Cagliari, nei pressi di Via Trieste 1",
+        url: 'CasaMia.jsp'
     });
 	
     var contentString = '<em>Sono qui!</em>';
@@ -36,6 +38,33 @@
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.open(map,marker);
     });
+    
+    // marker ospedale
+    
+    google.maps.event.addListener(marker, 'mouseover', function(event) {
+          var img = { url: 'Foto/Appartamento1/Appartamento1.JPG', size: new google.maps.Size(100,100) };
+          this.setIcon(img);
+      });
+     google.maps.event.addListener(marker, 'mouseout', function(event) {
+          this.setIcon();
+     });
+      
+     google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
+        });
+        
+    // marker trieste
+    google.maps.event.addListener(marker1, 'mouseover', function(event) {
+          var img = { url: 'Foto/Appartamento2/Appartamento2.JPG', size: new google.maps.Size(50,50) };
+          this.setIcon(img);
+      });
+      google.maps.event.addListener(marker1, 'mouseout', function(event) {
+          this.setIcon();
+      });
+      
+       google.maps.event.addListener(marker1, 'click', function() {
+            window.location.href = this.url;
+        });
     
     
   }
