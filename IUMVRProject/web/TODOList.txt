@@ -1,5 +1,4 @@
--Menù funzionante
--Risistemare i tour
+-Menù funzionante FATTOOOO
+-Risistemare i tour FATTOOO
 -Fare secondo tour
 -Finire pagina coi filtri
--Generazione dinamica informazioni delle case
