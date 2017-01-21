@@ -76,6 +76,16 @@
                 width: 230px; 
                 z-index: 2;
             }
+             #galleryBackground{
+            position: absolute; right: 0px; height: 100%; width: 100%; background-color: white;
+             }
+             #galleryBackground ul{
+                 list-style: none; 
+                 padding-left: 5px; 
+                 background-color: white; 
+                 cursor: pointer;
+             }
+             #carboardToggle{display: none;}
             
             @media only screen and (max-width: 768px) and (min-width: 480px){
                 body{
@@ -155,6 +165,7 @@
                 #galleryBackground li{
                     display: inline-block;
                 }
+                
             }
             
             @media only screen and (max-width: 480px){
@@ -210,6 +221,9 @@
                 #gallery{
                 display: none;
                 
+                }
+                #carboardToggle{
+                    display: block;
                 }
                 /* The switch - the box around the slider */
                 .switch {
@@ -290,7 +304,11 @@
             </div>
                     <div id='carboardToggle'>
                         <div id='switch'>
-                            
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                              <input type="checkbox">
+                              <div class="slider round"></div>
+                            </label>
                         </div>
                     </div>
             <div class="InfoBig">

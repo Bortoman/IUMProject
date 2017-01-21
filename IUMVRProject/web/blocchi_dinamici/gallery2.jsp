@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div id="galleryBackground" style="position: absolute; right: 0px; height: 100%; width: 100%; background-color: white">
-    <ul style="list-style: none; padding-left: 5px; background-color: white; cursor: pointer">
+<div id="galleryBackground">
+    <ul>
         <li>
             <a href="#" onclick="changePhoto('goBathroom');"> 
                 <img src="Foto/Appartamento2/Bathroom.jpg" alt="Bathroom" width="200" height="150">
