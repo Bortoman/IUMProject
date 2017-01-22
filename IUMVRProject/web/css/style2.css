@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Admin
 */
 
-/*@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');*/
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 
 body{
     margin: 0;
@@ -302,8 +302,8 @@ body{
 
 .isa_warning{
     padding: 10px;
-    color: white;
-    background-color: white;
+    color: #9F6000;
+    background-color: #FEEFB3;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;

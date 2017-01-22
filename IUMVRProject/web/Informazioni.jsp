@@ -109,8 +109,8 @@
                             
                             console.log(v1, v2);
                             
-                            if (v2 > 150000){
-                                document.getElementById("on_off_480table").style.visibility = 'hidden';
+                            if (v1 > 150000){
+                                document.getElementById("on_off_480table").style.display = 'none';
                             }
                         }
                         });
