@@ -275,13 +275,18 @@
                                 <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="475" height="285">
                             </a>
                         </th>
-                        <td>Address: Via Ospedale, 72</td>
+                        <td>Address: ${nome_citta}, Via Ospedale 72</td>
                     </tr>
                     <tr>
-                        <td>Where: ${nome_citta}</td>
+                        <td>
+                            Footage: 100 mq </td>
                     </tr>
                     <tr>
-                        <td>Footage: 100 mq</td>
+                        <td>
+                            <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35"> 
+                            <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35">
+                            <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35">
+                            </td>
                     </tr>
                     <tr>
                         <td>Price: 150.000 €</td>
@@ -298,13 +303,19 @@
                                 <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="475" height="285">
                             </a>
                         </th>
-                        <td>Address: Viale Trieste, 1</td>
-                    </tr>
-                    <tr>
-                        <td>Where: ${nome_citta}</td>
+                        <td>Address: ${nome_citta}, Viale Trieste 1</td>
                     </tr>
                     <tr>
                         <td>Footage: 120 mq</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35"> 
+                        <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35">
+                        <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35">   
+                        <img title="star" alt="rank" src="img/gold-star.jpg" width="35" height="35"> 
+                            
+                        </td>
                     </tr>
                     <tr>
                         <td>Price: 350.000 €</td>
