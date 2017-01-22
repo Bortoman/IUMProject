@@ -16,11 +16,11 @@
         <style>
             /*TOURVR*/
             body{
-                overflow: hidden;
+              
             }
             #TourVR{
                 width: 100%;
-                height: 780px;
+                height: 792px;
             }
             .startTour{
                 background: black;
@@ -75,6 +75,7 @@
                 position: absolute; 
                 right: 0px;
                 top: 60px;
+                border: solid darkslategray 6px;
                 height: 720px; 
                 width: 230px; 
                 z-index: 2;
@@ -134,7 +135,7 @@
                 }
                 .InfoBig{
                     background: white;
-                    height: 500px;
+                    height: 350px;
                     width: 100%;
                     position: relative;
                     top: 0;
@@ -179,6 +180,10 @@
                 #galleryBackground li{
                     display: inline-block;
                 }
+                .footer{
+                    position: relative;
+                    top: 500px;
+                }
 
             }
 
@@ -214,7 +219,7 @@
                 }
                 .InfoBig{
                     background: white;
-                    height: 500px;
+                    height: 350px;
                     width: 100%;
                     position: relative;
                     top: 0;
@@ -307,6 +312,10 @@
                 .slider.round:before {
                     border-radius: 50%;
                 }
+                .footer{
+                    position: relative;
+                    top: 500px;
+                }
 
             }
 
@@ -348,7 +357,9 @@
                 </div>
             </div>
         </section>
-
+                <div class="footer">
+        <%@ include file="blocchi_dinamici/footer.jsp"%> 
+                </div>
         <script src="js/three.min.js" type="text/javascript"></script>
         <script src="js/StereoEffects.js" type="text/javascript"></script>
         <script src="js/DeviceOrientationControls.js" type="text/javascript"></script>
@@ -844,17 +855,67 @@
                             shading: THREE.FlatShading,
                             map: texture
                         });
+                        var material1 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material2 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material3 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material4 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material5 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material6 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        var material7 = new THREE.MeshPhongMaterial({
+                            color: 0xfffff,
+                            specular: 0,
+                            shininess: 20,
+                            shading: THREE.FlatShading,
+                            map: texture
+                        });
+                        
 
                         var geometry = new THREE.CubeGeometry(2, 0, 2);
 
                         var goHall1FH2 = new THREE.Mesh(geometry, material);
-                        var goHall2FH1 = new THREE.Mesh(geometry, material);
-                        var goKitchen = new THREE.Mesh(geometry, material);
-                        var goHall2FK = new THREE.Mesh(geometry, material);
-                        var goBedroom = new THREE.Mesh(geometry, material);
-                        var goHall1FBe = new THREE.Mesh(geometry, material);
-                        var goBathroom = new THREE.Mesh(geometry, material);
-                        var goHall2FBa = new THREE.Mesh(geometry, material);
+                        var goHall2FH1 = new THREE.Mesh(geometry, material1);
+                        var goKitchen = new THREE.Mesh(geometry, material2);
+                        var goHall2FK = new THREE.Mesh(geometry, material3);
+                        var goBedroom = new THREE.Mesh(geometry, material4);
+                        var goHall1FBe = new THREE.Mesh(geometry, material5);
+                        var goBathroom = new THREE.Mesh(geometry, material6);
+                        var goHall2FBa = new THREE.Mesh(geometry, material7);
 
 
 

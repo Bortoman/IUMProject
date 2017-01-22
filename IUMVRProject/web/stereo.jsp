@@ -15,11 +15,11 @@
         <style>
             /*TOURVR*/
             body{
-                overflow: hidden;
+               
             }
             #TourVR{
                 width: 100%;
-                height: 780px;
+                height: 792px;
             }
             .startTour{
                 background: black;
@@ -71,10 +71,12 @@
             #gallery{
                 overflow-y:scroll; 
                 overflow-x: hidden;
+                
                 position: absolute; 
                 right: 0px;
                 top: 60px;
-                height: 720px; 
+                height: 720px;
+                border: solid darkslategray 6px;
                 width: 230px; 
                 z-index: 2;
             }
@@ -133,7 +135,7 @@
                 }
                 .InfoBig{
                     background: white;
-                    height: 500px;
+                    height: 350px;
                     width: 100%;
                     position: relative;
                     top: 0;
@@ -178,6 +180,10 @@
                 #galleryBackground li{
                     display: inline-block;
                 }
+                footer{
+                    position: relative;
+                    top: 500px;
+                }
 
             }
 
@@ -213,7 +219,7 @@
                 }
                 .InfoBig{
                     background: white;
-                    height: 500px;
+                    height: 350px;
                     width: 100%;
                     position: relative;
                     top: 0;
@@ -305,6 +311,10 @@
                 .slider.round:before {
                     border-radius: 50%;
                 }
+                footer{
+                    position: relative;
+                    top: 500px;
+                }
 
             }
 
@@ -345,6 +355,7 @@
                 </div>
             </div>
         </section>
+        <%@ include file="blocchi_dinamici/footer.jsp"%>
 
         <script src="js/three.min.js" type="text/javascript"></script>
         <script src="js/StereoEffects.js" type="text/javascript"></script>
