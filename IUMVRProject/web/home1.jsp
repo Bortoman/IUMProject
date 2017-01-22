@@ -20,9 +20,9 @@
     </head>
     <body>
 
-        <div id="box">
+       
             <%@ include file="blocchi_dinamici/header.jsp" %>      
-        </div>
+        
         <div id="sfondo">
             <div id="searchbar"> 
                 <h1>Find your next apartment</h1>

@@ -15,14 +15,16 @@ body{
     font-family: "Open Sans", Arial, sans-serif;
     color: black;
     background-color: white;
+    overflow-x: hidden;
 }
 
 #sfondo{
     background-image: url('../img/home.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: auto;
     padding: 0;
     margin: 0;
+    height:820px;
 }
 
 #box{
@@ -86,7 +88,9 @@ body{
     text-decoration: underline;
 
 }
-
+.dropbtn{
+    display: none;
+}
 /* Autocomplete
 ----------------------------------*/
 .ui-autocomplete { 
@@ -134,11 +138,11 @@ body{
 }
 
 #searchbar{   
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 80px;
-    height: 50%;
-    width: 99.8%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 60px;
+    height: 820px;
+    width: 100%;
     border:1px solid black;
     text-align: center;
     background:white;
@@ -153,7 +157,7 @@ body{
 
 .searchbutton{
     background-image: url('../img/lente.png');
-    background-position: 98% 10px;
+    background-position: 100% 10px;
     background-size: 22px 22px;
     background-repeat: no-repeat;
 }
@@ -324,7 +328,7 @@ body{
 
 footer {
     position: relative;
-    height: 30px;
+    
     padding: 5px;
     text-align: center;
     width: 100%;
@@ -334,13 +338,21 @@ footer {
 footer a{
     height: 40px;
     padding: 5px;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 728px){
     /*body{
         height: 0;
     }*/
-
+    #sfondo{
+    background-image: url('../img/home.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: 0;
+    margin: 0;
+    height: 720px;
+    }
     #searchbar h1{
         font-size: 20px;
         margin: 0;
@@ -370,16 +382,23 @@ footer a{
     }
 
     #searchbar{   
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 25%;
-        height: 50%;
-        width: 99.8%;
+        margin-left: 0;
+        margin-right: -7px;
+        margin-top: 60px;
+        height: 720px;
+        width: 100%;
         border: 0;
         text-align: center;
         background:white;
-        background:rgba(0,0,0,0);
+        background:rgba(0,0,0,0.5); 
         color: white;
+    }
+    #searchbar h1{
+        padding-top: 40px;
+    }
+    .isa_warning{
+        width: 70%;
+        height: 50px;
     }
     .form-container {
         width: 300px;
@@ -426,9 +445,18 @@ footer a{
     }
 }
 @media only screen and (max-width: 680px){
-
+    #sfondo{
+    
+    height: 520px;
+    }
+    #searchbar{   
+        
+        height: 520px;
+        
+    }
     .dropbtn{
         /*Proprietà del bottone*/
+        display: block;
         position:absolute;
         right: 5px;
         top:5px;
