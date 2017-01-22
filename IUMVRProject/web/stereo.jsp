@@ -69,7 +69,8 @@
                 left: 50px;
             }
             #gallery{
-                overflow:scroll; 
+                overflow-y:scroll; 
+                overflow-x: hidden;
                 position: absolute; 
                 right: 0px;
                 top: 60px;
@@ -85,6 +86,10 @@
                 padding-left: 5px; 
                 background-color: white; 
                 cursor: pointer;
+                
+            }
+            #galleryBackground li img{
+                border: solid lightskyblue 4px;
             }
             #carboardToggle{display: none;}
 
@@ -94,7 +99,7 @@
                 }
                 #TourVR{
                     width: 100%;
-                    height: 720px;
+                    height: 640px;
                 }
                 .startTour{
                     background: black;
@@ -103,16 +108,12 @@
 
                 }
                 #startTourIMG{
-                    position: absolute;
-                    cursor: pointer;
-                    top:230px;
-                    left:37%;
-                    z-index: 8;
+                    display: none;
 
                 }
 
                 #example {
-                    opacity: 0.4;
+                    opacity: 1;
                     width: 100%;
                     height: 100%;
                     /*position: absolute;
@@ -143,7 +144,8 @@
                     overflow-y: hidden;
                     position: relative; 
                     top:0;
-                    height: 150px; 
+                    
+                    height: 170px; 
                     width: 100%; 
                     z-index: 2;
 
@@ -153,7 +155,7 @@
 
 
                     background-color: white;
-                    height: 150px;
+                    height: 160px;
                     width: 100%;
                 }
                 #galleryBackground ul{
@@ -162,6 +164,8 @@
                     padding-left: 5px; 
                     background-color: white; 
                     cursor:pointer;
+                    margin-top: 5px;
+                    
                 }
                 #galleryBackground li{
                     display: inline-block;
@@ -175,7 +179,7 @@
                 }
                 #TourVR{
                     width: 100%;
-                    height: 300px;
+                    height: 320px;
                 }
                 .startTour{
                     background: black;
@@ -184,16 +188,12 @@
 
                 }
                 #startTourIMG{
-                    position: absolute;
-                    cursor: pointer;
-                    top: 130px;
-                    left: 25%;
-                    z-index: 8;
+                    display: none;
 
                 }
 
                 #example {
-                    opacity: 0.4;
+                    opacity: 1;
                     width: 100%;
                     height: 100%;
                     /*position: absolute;
@@ -308,7 +308,7 @@
                     <div id='switch'>
                         <!-- Rounded switch -->
                         <label class="switch">
-                            <input type="checkbox">
+                            <input id="cardboard" type="checkbox" value="on" onclick="carboardactivate();">
                             <div class="slider round"></div>
                         </label>
                     </div>
@@ -349,6 +349,8 @@
                     var clock = new THREE.Clock();
                     var changePhoto;
                     var currentO;
+                    var cardboard = false;
+                    console.log(cardboard);
                     var isMobile = false; //initiate as false
                     // device detection
                     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
@@ -359,6 +361,23 @@
 
                     init();
                     animate();
+                    
+                    function carboardactivate() {
+                        console.log(document.getElementById('cardboard').value);
+                        if (document.getElementById('cardboard').value === 'on') {
+                            document.getElementById('cardboard').value = 'off';
+                            cardboard = true;
+                            console.log(document.getElementById('cardboard').value);
+                            if (isMobile && cardboard) {
+                                effect = new THREE.StereoEffect(renderer);
+                            }
+                        }
+                        else {
+                            document.getElementById('cardboard').value = 'on';
+                            cardboard = false;
+                            console.log(document.getElementById('cardboard').value);
+                        }   
+                    }
 
 
                     function onMouseMove(event)
@@ -383,9 +402,7 @@
                         container = document.getElementById('example');
                         container.appendChild(element);
 
-                        if (isMobile) {
-                            effect = new THREE.StereoEffect(renderer);
-                        }
+                        
 
 
                         scene = new THREE.Scene();
@@ -1369,7 +1386,7 @@
                         resize();
                         // create an array containing all objects in the scene with which the ray intersects
                         var intersects = raycaster.intersectObjects(scene.children);
-                        console.log(intersects.length, intersects[0]);
+                        
 
                         intersecati = intersects;
 
@@ -1378,7 +1395,7 @@
 
                                 intersecati[0].object.material.emissive.setHex(0xff0000);
                                 currentO = intersecati[0];
-                                console.log(currentO.object.name);
+                                
                             } else
                             if (currentO !== undefined)
                                 currentO.object.material.emissive.setHex(0x000000);
@@ -1398,18 +1415,7 @@
                         // update the picking ray with the camera and mouse position
                         raycaster.setFromCamera(mouse, camera);
 
-                        // calculate objects intersecting the picking ray
-
-
-
-
-
-
-
-
-
-
-                        if (isMobile)
+                        if (isMobile && cardboard)
                             effect.render(scene, camera);
                         else
                             renderer.render(scene, camera);
@@ -1426,7 +1432,7 @@
                         camera.updateProjectionMatrix();
 
 
-                        if (isMobile)
+                        if (isMobile && cardboard)
                             effect.setSize(width, height);
                         else
                             renderer.setSize(width, height);

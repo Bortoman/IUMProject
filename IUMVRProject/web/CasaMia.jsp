@@ -70,7 +70,8 @@
                 left: 50px;
             }
             #gallery{
-                overflow:scroll; 
+                overflow-y:scroll; 
+                overflow-x: hidden;
                 position: absolute; 
                 right: 0px;
                 top: 60px;
@@ -86,6 +87,10 @@
                 padding-left: 5px; 
                 background-color: white; 
                 cursor: pointer;
+                
+            }
+            #galleryBackground li img{
+                border: solid lightskyblue 4px;
             }
             #carboardToggle{display: none;}
 
@@ -95,7 +100,7 @@
                 }
                 #TourVR{
                     width: 100%;
-                    height: 720px;
+                    height: 640px;
                 }
                 .startTour{
                     background: black;
@@ -104,16 +109,12 @@
 
                 }
                 #startTourIMG{
-                    position: absolute;
-                    cursor: pointer;
-                    top:230px;
-                    left:37%;
-                    z-index: 8;
+                    display: none;
 
                 }
 
                 #example {
-                    opacity: 0.4;
+                    opacity: 1;
                     width: 100%;
                     height: 100%;
                     /*position: absolute;
@@ -144,7 +145,8 @@
                     overflow-y: hidden;
                     position: relative; 
                     top:0;
-                    height: 150px; 
+                    
+                    height: 170px; 
                     width: 100%; 
                     z-index: 2;
 
@@ -154,7 +156,7 @@
 
 
                     background-color: white;
-                    height: 150px;
+                    height: 160px;
                     width: 100%;
                 }
                 #galleryBackground ul{
@@ -163,6 +165,8 @@
                     padding-left: 5px; 
                     background-color: white; 
                     cursor:pointer;
+                    margin-top: 5px;
+                    
                 }
                 #galleryBackground li{
                     display: inline-block;
@@ -176,7 +180,7 @@
                 }
                 #TourVR{
                     width: 100%;
-                    height: 300px;
+                    height: 320px;
                 }
                 .startTour{
                     background: black;
@@ -185,16 +189,12 @@
 
                 }
                 #startTourIMG{
-                    position: absolute;
-                    cursor: pointer;
-                    top: 130px;
-                    left: 25%;
-                    z-index: 8;
+                    display: none;
 
                 }
 
                 #example {
-                    opacity: 0.4;
+                    opacity: 1;
                     width: 100%;
                     height: 100%;
                     /*position: absolute;
@@ -226,6 +226,20 @@
                 }
                 #carboardToggle{
                     display: block;
+                    height: 60px;
+                    
+                }
+                .iconVR{
+                    display: inline-block;
+                    position: relative;
+                    left: 15px;
+                    
+                }
+                #switch{
+                    display: inline-block;
+                    position: absolute;
+                    right: 15px;
+                    padding-top: 5px;
                 }
                 /* The switch - the box around the slider */
                 .switch {
@@ -294,15 +308,27 @@
         <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
-        <div id="gallery" style="overflow:scroll; position: absolute; right: 0px; height: 720px; width: 230px; z-index: 2">
-            <%@ include file="blocchi_dinamici/gallery2.jsp"%>
-        </div>
+        
         <section id="TourVR">
 
             <div class="startTour">
                 <a id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
                 <div id="example">
 
+                </div>
+                <div id="gallery">
+                    <%@ include file="blocchi_dinamici/gallery2.jsp"%>
+                </div>
+                
+                <div id='carboardToggle'>
+                    <img class="iconVR" src="img/Google_Cardboard_logo.png" alt="" height="50px"/>
+                    <div id='switch'>
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                            <input id="cardboard" type="checkbox" value="on" onclick="carboardactivate();">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
                 </div>
                 <div class="InfoBig">
 
@@ -339,6 +365,7 @@
                     projector = new THREE.Projector();
                     var clock = new THREE.Clock();
                     var changePhoto;
+                    var cardboard = false;
                     var currentO;
                     var isMobile = false; //initiate as false
                     // device detection
@@ -350,6 +377,25 @@
 
                     init();
                     animate();
+                    
+                    
+                    function carboardactivate() {
+                        console.log(document.getElementById('cardboard').value);
+                        if (document.getElementById('cardboard').value === 'on') {
+                            document.getElementById('cardboard').value = 'off';
+                            cardboard = true;
+                            console.log(document.getElementById('cardboard').value);
+                            if (isMobile && cardboard) {
+                                effect = new THREE.StereoEffect(renderer);
+                            }
+                        }
+                        else {
+                            document.getElementById('cardboard').value = 'on';
+                            cardboard = false;
+                            console.log(document.getElementById('cardboard').value);
+                        }   
+                    }
+
 
 
                     function onMouseMove(event)
@@ -959,7 +1005,7 @@
                                 currentO.object.material.emissive.setHex(0x000000);
                         }
 
-                        if (isMobile)
+                        if (isMobile && cardboard)
                             effect.render(scene, camera);
                         else
                             renderer.render(scene, camera);
@@ -976,7 +1022,7 @@
                         camera.updateProjectionMatrix();
 
 
-                        if (isMobile)
+                        if (isMobile && cardboard)
                             effect.setSize(width, height);
                         else
                             renderer.setSize(width, height);

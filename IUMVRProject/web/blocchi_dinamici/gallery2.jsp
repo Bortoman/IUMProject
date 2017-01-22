@@ -8,9 +8,10 @@
 <div id="galleryBackground">
     <ul>
         <li>
-            <a href="#" onclick="changePhoto('goBathroom');"> 
-                <img src="Foto/Appartamento2/Bathroom.jpg" alt="Bathroom" width="200" height="150">
-            </a>
+            
+                <img src="Foto/Appartamento2/Bathroom.jpg" alt="Bathroom" width="200" height="150"
+                     onclick="changePhoto('goHall2FH1');">
+            
         </li>
         <li>
             <img src="Foto/Appartamento2/Bedroom.jpg" alt="Bedroom" width="200" height="150"
