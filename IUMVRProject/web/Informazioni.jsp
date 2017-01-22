@@ -88,12 +88,28 @@
                         dimension: '&nbsp;€', 
                         skin: "round_plastic",
                         callback: function(){
-                            var p2 = $("#SliderPrezzo").slider("valueAsNumber"); 
+                            var str = $("#SliderPrezzo").slider("value"); 
+                            var trovatoPV= false;
+                            var value1= '';
+                            var value2= '';
+                            for (var i = 0; i<str.length; i++){
+                                if (str.charAt(i) === ';'){
+                                    trovatoPV = true;
+                                }else {
+                                if (trovatoPV === false){
+                                    value1 = value1 + str.charAt(i);
+                                }
+                                else
+                                    value2 = value2 + str.charAt(i);
+                            }
+                            }
+                            var v1 = parseInt(value1);
+                            var v2 = parseInt(value2);
                             
                             
-                            console.log(p2);
+                            console.log(v1, v2);
                             
-                            if (p2 > 150000){
+                            if (v2 > 150000){
                                 document.getElementById("on_off_480table").style.visibility = 'hidden';
                             }
                         }
@@ -108,7 +124,40 @@
                     </span>
                 </div>
                 <script type="text/javascript" charset="utf-8">
-                    jQuery("#SliderMetratura").slider({from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "round_plastic"});
+                    jQuery("#SliderMetratura").slider({
+                        from: 0, 
+                        to: 500, 
+                        heterogeneity: ['50/100', '75/250'], 
+                        scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], 
+                        limits: false, 
+                        step: 1, 
+                        dimension: '&nbsp;m<small>2</small>', 
+                        skin: "round_plastic",
+                        callback: function(){
+                            var str = $("#SliderMetratura").slider("value"); 
+                            var trovatoPV= false;
+                            var value1= '';
+                            var value2= '';
+                            for (var i = 0; i<str.length; i++){
+                                if (str.charAt(i) === ';'){
+                                    trovatoPV = true;
+                                }else {
+                                if (trovatoPV === false){
+                                    value1 = value1 + str.charAt(i);
+                                }
+                                else
+                                    value2 = value2 + str.charAt(i);
+                            }
+                            }
+                            var v1 = parseInt(value1);
+                            var v2 = parseInt(value2);
+                            
+                            
+                            console.log(v1, v2);
+                            
+                            
+                        }
+                    });
                 </script>
                 </div>
                 
