@@ -8,19 +8,22 @@ and open the template in the editor.
     Author     : Admin
 */
 
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+/*@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');*/
 
 body{
     margin: 0;
     font-family: "Open Sans", Arial, sans-serif;
     color: black;
+    background-color: white;
+}
+
+#sfondo{
     background-image: url('../img/home.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-color: white;
-
+    padding: 0;
+    margin: 0;
 }
-
 
 #box{
     width: 100%;
@@ -40,7 +43,7 @@ body{
 
 #header_box{
     background-color: #fff;
-    
+
     width: 90%;
     height: 60px;
 }
@@ -49,12 +52,12 @@ body{
 #header_box ul {
     list-style-type: none;
     margin: 0;
-   
+
     overflow: hidden;
     background-color: #fff;
     float: right;
     height: 60px;
-    
+
 }
 
 #header_box li{
@@ -323,10 +326,18 @@ body{
 
 /* info sul sito */
 
-#description{
+footer {
+    position: relative;
+    height: 30px;
+    padding: 5px;
     text-align: center;
-    margin-top: 400px;
-    color: black;
+    width: 100%;
+    background-color: #EEF0F7;
+}
+
+footer a{
+    height: 40px;
+    padding: 5px;
 }
 
 @media only screen and (max-width: 728px){
@@ -419,7 +430,7 @@ body{
     }
 }
 @media only screen and (max-width: 650px){
-    
+
     .dropbtn{
         /*Proprietà del bottone*/
         position:absolute;
@@ -449,13 +460,13 @@ body{
         width:200px;
         height: auto;
         z-index: 22;
-        
+
     }
     #header_box:hover .pageNav{
         display: block;
-        
+
     }
-    
+
 
     #header_box li{
         display: block;

@@ -23,30 +23,26 @@
         <div id="box">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
+        <div id="sfondo">
+            <div id="searchbar"> 
+                <h1>Find your next apartment</h1>
+                <div id="searchfield">
+                    <!--<form method="post" class="form-container" action="" onSubmit="return checkAnswer();">-->
+                    <form class = "form-container" onSubmit="return checkAnswer();" action="/" id="form-action">
+                        <input type="text" name="citta" class="biginput" id="autocomplete" placeholder="Type a city name">
+                        <div class="submit-container">
+                            <input type="submit" value="" class="submit" name="Submit" />
+                        </div> 
 
-        <div id="searchbar"> 
-            <h1>Find your next apartment</h1>
-            <div id="searchfield">
-                <!--<form method="post" class="form-container" action="" onSubmit="return checkAnswer();">-->
-                <form class = "form-container" onSubmit="return checkAnswer();" action="/" id="form-action">
-                    <input type="text" name="citta" class="biginput" id="autocomplete" placeholder="Type a city name">
-                    <div class="submit-container">
-                        <input type="submit" value="" class="submit" name="Submit" />
-                    </div> 
+                    </form>
+                </div>
 
-                </form>
-            </div>
-
-            <div class="isa_warning" id="errormsg">
-                <i class="fa fa-warning" id="altboing"></i>
-                Please select a city from the suggestions list!
+                <div class="isa_warning" id="errormsg">
+                    <i class="fa fa-warning" id="altboing"></i>
+                    Please select a city from the suggestions list!
+                </div>
             </div>
         </div>
-
-        <div id="description">
-            Qualche info random    
-
-        </div>
-
+        <%@ include file="blocchi_dinamici/footer.jsp" %>
     </body>
 </html>
