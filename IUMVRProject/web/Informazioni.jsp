@@ -109,9 +109,39 @@
                             
                             console.log(v1, v2);
                             
-                            if (v1 > 150000){
+                            // visualizzazione messaggio di errore filtri
+                            var tab1 = false;
+                            var tab2 = false;
+                            
+                            if ( (v1 > 150000) || (v2 < 150000) ){
                                 document.getElementById("on_off_480table").style.display = 'none';
+                                tab1 = true;
                             }
+                            
+                            else{
+                                document.getElementById("on_off_480table").style.display = '';
+                                tab1 = false;
+                            }
+                                
+                            
+                            if ( (v1 > 350000) || (v2 < 350000) ){
+                                document.getElementById("on_off_480table2").style.display = 'none';
+                                tab2 = true;
+                            }
+                            
+                            else
+                            {
+                                document.getElementById("on_off_480table2").style.display = '';
+                                tab2 = false;
+                            }
+                            
+                            if (tab1 && tab2){
+                                document.getElementById("noresults").style.display = '';
+                            }                    
+                            else
+                                document.getElementById("noresults").style.display = 'none';
+                            
+                            
                         }
                         });
                         
@@ -155,6 +185,37 @@
                             
                             console.log(v1, v2);
                             
+                            // visualizzazione messaggio di errore filtri
+                            var tab1 = false;
+                            var tab2 = false;
+                            
+                            if ( (v1 > 100) || (v2 < 100) ){
+                                document.getElementById("on_off_480table").style.display = 'none';
+                                tab1 = true;
+                            }
+                            
+                            else{
+                                document.getElementById("on_off_480table").style.display = '';
+                                tab1 = false;
+                            }
+                                
+                            
+                            if ( (v1 > 120) || (v2 < 120) ){
+                                document.getElementById("on_off_480table2").style.display = 'none';
+                                tab2 = true;
+                            }
+                            
+                            else
+                            {
+                                document.getElementById("on_off_480table2").style.display = '';
+                                tab2 = false;
+                            }
+                            
+                            if (tab1 && tab2){
+                                document.getElementById("noresults").style.display = '';
+                            }                    
+                            else
+                                document.getElementById("noresults").style.display = 'none';
                             
                         }
                     });
@@ -178,7 +239,8 @@
 
             </div>
 
-        <div class="isa_warning" id="errormsg" style="display:none;">
+         <!-- messaggio di errore per input città -->
+        <div class="isa_warning" id="errormsg" style="display:none;" >
             <i class="fa fa-warning" id="altboing"></i>
             Please select a city from the suggestions list!
         </div>
@@ -199,7 +261,12 @@
           </div>-->
 
             <div id="cliente_480table">
-                <!-- <h1 id="cliente_title_480table">Carrello</h1>-->
+                <!-- messaggio di errore dovuto ai filtri -->
+                <div class="noresults1" id="noresults" style="display:none;">
+                <i class="fa fa-warning" id="altboing"></i>
+                No search results!
+                </div>
+                 
                 <table id="on_off_480table">
                     <tr>
                         <th rowspan="5">
@@ -239,7 +306,7 @@
                         <td>Metratura: 120 mq</td>
                     </tr>
                     <tr>
-                        <td>Prezzo: Sempre €</td>
+                        <td>Prezzo: 350.000 €</td>
                     </tr>
                     <tr>
                         <td><button class="bottoneinfo" onclick="location.href = 'CasaMia.jsp'" title="Visualizza informazioni">Dettagli</button></td>
