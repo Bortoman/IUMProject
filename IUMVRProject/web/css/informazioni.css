@@ -25,6 +25,7 @@ body{
     height: 100%;  
 }
 
+
 #header{
     margin-left: auto;
     margin-right: auto;
@@ -42,12 +43,10 @@ body{
 #header_box ul {
     list-style-type: none;
     margin: 0;
-    padding-right: 20%;
     overflow: hidden;
     background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 90%; 
+    float: right;
+    height: 60px;
 }
 
 #header_box li{
