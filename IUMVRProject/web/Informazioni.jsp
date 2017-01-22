@@ -265,7 +265,7 @@
                 <!-- messaggio di errore dovuto ai filtri -->
                 <div class="noresults1" id="noresults" style="display:none;">
                 <i class="fa fa-warning" id="altboing"></i>
-                No search results!
+                No filter results!
                 </div>
                  
                 <table id="on_off_480table">
