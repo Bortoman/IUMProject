@@ -61,7 +61,7 @@
                 width: 250px;
                 position: relative;
                 top: -150px;
-                left: 65%;
+                left: 57%;
                 border-radius: 8px;
             }
             .InfoSmall button{
@@ -93,6 +93,14 @@
                 border: solid lightskyblue 4px;
             }
             #carboardToggle{display: none;}
+            
+            @media only screen and (max-width: 1024px){
+                .InfoSmall{
+                
+                left: 50%;
+                
+            }
+            }
 
             @media only screen and (max-width: 868px) and (min-width: 480px){
                 body{

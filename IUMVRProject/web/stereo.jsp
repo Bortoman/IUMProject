@@ -60,7 +60,7 @@
                 width: 250px;
                 position: relative;
                 top: -150px;
-                left: 65%;
+                left: 57%;
                 border-radius: 8px;
             }
             .InfoSmall button{
@@ -92,6 +92,14 @@
                 border: solid lightskyblue 4px;
             }
             #carboardToggle{display: none;}
+            
+            @media only screen and (max-width: 1024px){
+                .InfoSmall{
+                
+                left: 50%;
+                
+            }
+            }
 
             @media only screen and (max-width: 868px) and (min-width: 480px){
                 body{
@@ -225,6 +233,19 @@
                 }
                 #carboardToggle{
                     display: block;
+                    height: 60px;
+                }
+                .iconVR{
+                    display: inline-block;
+                    position: relative;
+                    left: 15px;
+                    
+                }
+                #switch{
+                    display: inline-block;
+                    position: absolute;
+                    right: 15px;
+                    padding-top: 5px;
                 }
                 /* The switch - the box around the slider */
                 .switch {
@@ -305,6 +326,7 @@
                     <%@ include file="blocchi_dinamici/gallery.jsp"%>
                 </div>
                 <div id='carboardToggle'>
+                    <img class="iconVR" src="img/Google_Cardboard_logo.png" alt="" height="50px"/>
                     <div id='switch'>
                         <!-- Rounded switch -->
                         <label class="switch">
