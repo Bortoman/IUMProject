@@ -7,11 +7,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <header id="header">
+    <img src="img/logo.png" alt="logo" width="50" height="50" style="float: left; margin-top: 5px; margin-left: 5px;">
     <div id="header_box">  
-       <ul>
-        <li style="float: left; margin-top: 5px; margin-left: 5px">
-            <img src="img/logo.png" alt="logo" width="50" height="50">
-        </li>
+        
+        <div class="dropbtn">
+        </div>
+       <ul class="pageNav">
        <!-- con il float right me li visualizza al contrario?!-->
         <li><a href="home1.jsp">About</a></li>
         <li><a href="home1.jsp">Contact</a></li>
@@ -19,6 +20,8 @@
         <li><a href="home1.jsp">Home</a></li>
         
          
-        </ul>  
+        </ul> 
+        
     </div>
+        
     </header>

@@ -71,7 +71,8 @@
             #gallery{
                 overflow:scroll; 
                 position: absolute; 
-                right: 0px; 
+                right: 0px;
+                top: 60px;
                 height: 720px; 
                 width: 230px; 
                 z-index: 2;
@@ -87,7 +88,7 @@
              }
              #carboardToggle{display: none;}
             
-            @media only screen and (max-width: 768px) and (min-width: 480px){
+            @media only screen and (max-width: 868px) and (min-width: 480px){
                 body{
                     overflow:visible;
                 }
@@ -140,8 +141,8 @@
                 #gallery{
                 overflow-x: scroll;
                 overflow-y: hidden;
-                position: absolute; 
-                bottom: -18px;
+                position: relative; 
+                top:0;
                 height: 150px; 
                 width: 100%; 
                 z-index: 2;
@@ -174,7 +175,7 @@
                 }
                 #TourVR{
                     width: 100%;
-                    height: 720px;
+                    height: 300px;
                 }
                 .startTour{
                     background: black;
@@ -185,8 +186,8 @@
                 #startTourIMG{
                     position: absolute;
                     cursor: pointer;
-                    top:230px;
-                    left:37%;
+                    top: 130px;
+                    left: 25%;
                     z-index: 8;
 
                 }
@@ -292,15 +293,16 @@
         <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
-        <div id="gallery">
-            <%@ include file="blocchi_dinamici/gallery.jsp"%>
-        </div>
+        
         <section id="TourVR">
             
             <div class="startTour">
                     <a id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
             <div id="example">
                
+            </div>
+            <div id="gallery">
+            <%@ include file="blocchi_dinamici/gallery.jsp"%>
             </div>
                     <div id='carboardToggle'>
                         <div id='switch'>

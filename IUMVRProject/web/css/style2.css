@@ -33,26 +33,28 @@ body{
     background-color: #fff;
     width: 100%;
     height: 60px;
-    ;
+    position: fixed;
+    top:0;
+    z-index: 22;
 }
 
 #header_box{
     background-color: #fff;
+    
     width: 90%;
-    z-index: 20;
+    height: 60px;
 }
 
 
 #header_box ul {
     list-style-type: none;
     margin: 0;
-    padding-right: 20%;
+   
     overflow: hidden;
     background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 90%; 
-    z-index: 20
+    float: right;
+    height: 60px;
+    
 }
 
 #header_box li{
@@ -414,5 +416,75 @@ body{
         margin-top: 0px;
         color: black;
         background-color: white;
+    }
+}
+@media only screen and (max-width: 650px){
+    
+    .dropbtn{
+        /*Proprietà del bottone*/
+        position:absolute;
+        right: 5px;
+        top:5px;
+        height: 50px;
+        width: 50px;
+        background-image: url(../img/show-menu-icon.png);
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+    }
+    #header_box{
+        position:absolute;
+        right: 0;
+        top: 0;
+        height: 50px;
+        width: 50px;
+    }
+    #header_box ul {
+        position:absolute;
+        left: -150px;
+        top:55px;
+        display: none;
+        padding-left: 0px;
+        width:200px;
+        height: auto;
+        z-index: 22;
+        
+    }
+    #header_box:hover .pageNav{
+        display: block;
+        
+    }
+    
+
+    #header_box li{
+        display: block;
+        float: none; 
+    }
+
+    #header_box a {
+        display: block;
+        padding: 0;
+        background-color: #ffffff; 
+
+    }  
+
+    #header_box li a {
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        padding: 14px; /* 14 -> distanza verticale opzioni; 40 -> distanza orizzontale opzioni*/
+        text-decoration: none;
+        color: #000; /* colore opzioni header */
+        font-weight: bold;
+
+    }
+
+    #header_box li a:hover {
+        background-color: #3399ff;  
+        color: #fff;
+        text-decoration: underline;
+
     }
 }
