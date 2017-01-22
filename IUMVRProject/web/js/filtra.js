@@ -74,28 +74,5 @@ function filt(s){
             });
             break;
     }
-    /*
-    if(x === 'popularity'){
-            $('#on_off_480table2').each(function () {
-            if (!$(this).text().match(/^\s*$/)) {
-                $(this).insertBefore($(this).prev('#on_off_480table'));
-            }
-        });
-    }
-    
-    if(x === 'alfabetic+'){
-            $('#on_off_480table').each(function () {
-            if (!$(this).text().match(/^\s*$/)) {
-                $(this).insertBefore($(this).prev('#on_off_480table2'));
-            }
-        });
-    }
-    
-    if(x === 'alfabetic+'){
-            $('#on_off_480table').each(function () {
-            if (!$(this).text().match(/^\s*$/)) {
-                $(this).insertBefore($(this).prev('#on_off_480table2'));
-            }
-        });
-    }*/
+
 }
