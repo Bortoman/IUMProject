@@ -73,7 +73,7 @@
                         
                 <div id="slider1">
                  <div class="sliderprezzo" style="width: 100%;">
-                    Prezzo<span class="sliderprezzo1">
+                    Price<span class="sliderprezzo1">
                         <input id="SliderPrezzo" type="slider" name="price" value="1000;1000000"/>
                     </span>
                 </div>
@@ -149,7 +149,7 @@
                 </script>
 
                 <div class="slidermetratura" style="width: 100%;">
-                    Metratura<span class="slidermetratura1" >
+                    Footage<span class="slidermetratura1" >
                         <input id="SliderMetratura" type="slider" name="area" value="0;500" />
                     </span>
                 </div>
@@ -224,14 +224,15 @@
                 
                 
                 <div id="menu">
-                   <select class="selectmenu">                       
-                   <option value="Popolarita">Popolarità</option>
-                   <option value="Alfabetico+">Alfabetico: crescente</option>
-                   <option value="Alfabetico-">Alfabetico: decrescente</option>
-                   <option value="Prezzo+">Prezzo: crescente</option>
-                   <option value="Prezzo-">Prezzo: decrescente</option>
-                   <option value="Metratura+">Metratura: crescente</option>
-                   <option value="Metratura-">Metratura: decrescente</option>
+                   <select class="selectmenu">
+                    <option value="order">Choose an order</option>                       
+                   <option value="popularity">Popularity</option>
+                   <option value="alfabetic+">Alfabetic: increasing</option>
+                   <option value="alfabetic-">Alfabetic: decreasing</option>
+                   <option value="price+">Price: increasing</option>
+                   <option value="price-">Price: decreasing</option>
+                   <option value="footage+">Footage: increasing</option>
+                   <option value="footage-">Footage: decreasing</option>
                    </select>
                 </div>
                 
@@ -274,19 +275,19 @@
                                 <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="475" height="285">
                             </a>
                         </th>
-                        <td>Indirizzo: Via Ospedale, 72</td>
+                        <td>Address: Via Ospedale, 72</td>
                     </tr>
                     <tr>
-                        <td>Dove: ${nome_citta}</td>
+                        <td>Where: ${nome_citta}</td>
                     </tr>
                     <tr>
-                        <td>Metratura: 100 mq</td>
+                        <td>Footage: 100 mq</td>
                     </tr>
                     <tr>
-                        <td>Prezzo: 150.000 €</td>
+                        <td>Price: 150.000 €</td>
                     </tr>
                     <tr>
-                        <td><button class="bottoneinfo" onclick="location.href = 'stereo.jsp'" title="Visualizza informazioni">Dettagli</button></td>
+                        <td><button class="bottoneinfo" onclick="location.href = 'stereo.jsp'" title="Visualizza informazioni">More info</button></td>
                     </tr>
                 </table>
                 <!-- prova con due elementi -->
@@ -297,19 +298,19 @@
                                 <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="475" height="285">
                             </a>
                         </th>
-                        <td>Indirizzo: Viale Trieste, 1</td>
+                        <td>Address: Viale Trieste, 1</td>
                     </tr>
                     <tr>
-                        <td>Dove: ${nome_citta}</td>
+                        <td>Where: ${nome_citta}</td>
                     </tr>
                     <tr>
-                        <td>Metratura: 120 mq</td>
+                        <td>Footage: 120 mq</td>
                     </tr>
                     <tr>
-                        <td>Prezzo: 350.000 €</td>
+                        <td>Price: 350.000 €</td>
                     </tr>
                     <tr>
-                        <td><button class="bottoneinfo" onclick="location.href = 'CasaMia.jsp'" title="Visualizza informazioni">Dettagli</button></td>
+                        <td><button class="bottoneinfo" onclick="location.href = 'CasaMia.jsp'" title="Visualizza informazioni">More info</button></td>
                     </tr>
                 </table>
             </div>

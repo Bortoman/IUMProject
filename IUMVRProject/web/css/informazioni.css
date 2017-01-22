@@ -528,7 +528,7 @@ float: left;}
     /* testo + slider prezzo */
     .sliderprezzo{
         margin-bottom: 14px;
-        margin-left: 3px;
+        margin-left: 10px;
     }
     
     /* solo slider prezzo */
@@ -536,12 +536,12 @@ float: left;}
         display: inline-block; 
         width: 400px; 
         padding: 0 5px;
-        margin-left: 38px;
+        margin-left: 36px;
     }
     
         /* testo + slider metratura */
     .slidermetratura{
-        margin-left: 3px;
+        margin-left: 10px;
     }
     
       /* solo slider metratura */
@@ -549,7 +549,7 @@ float: left;}
         display: inline-block; 
         width: 400px; 
         padding: 0 5px;
-        margin-left: 15px;
+        margin-left: 20px;
     }
    
     

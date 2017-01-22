@@ -26,7 +26,7 @@
     var marker1 = new google.maps.Marker({
         position: myLatLng1, 
         map: map,
-        title:"Mi trovo a Cagliari, nei pressi di Via Trieste 1",
+        //title:"Mi trovo a Cagliari, nei pressi di Via Trieste 1",
         url: 'CasaMia.jsp'
     });
 	
@@ -35,9 +35,9 @@
         content: contentString
     });
 	
-    google.maps.event.addListener(marker, 'click', function() {
+    /*google.maps.event.addListener(marker, 'click', function() {
         infoWindow.open(map,marker);
-    });
+    });*/
     
     // marker ospedale
     
