@@ -43,7 +43,6 @@ body{
 
 #header_box{
     background-color: #fff;
-
     width: 90%;
     height: 60px;
 }
@@ -52,12 +51,10 @@ body{
 #header_box ul {
     list-style-type: none;
     margin: 0;
-
     overflow: hidden;
     background-color: #fff;
     float: right;
     height: 60px;
-
 }
 
 #header_box li{
@@ -69,8 +66,7 @@ body{
     display: block;
     padding: 8px;
     background-color: #ffffff; 
-
-}  
+}
 
 #header_box li a {
     display: block;
@@ -429,7 +425,7 @@ footer a{
         background-color: white;
     }
 }
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 680px){
 
     .dropbtn{
         /*Proprietà del bottone*/
