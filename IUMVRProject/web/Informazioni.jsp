@@ -224,8 +224,8 @@
                 
                 
                 <div id="menu">
-                   <select class="selectmenu">
-                    <option value="order">Choose an order</option>                       
+                   <select class="selectmenu" onchange="filt(this);" id="pop">
+                   <option value="order">Choose an order</option>                       
                    <option value="popularity">Popularity</option>
                    <option value="alfabetic+">Alfabetic: increasing</option>
                    <option value="alfabetic-">Alfabetic: decreasing</option>

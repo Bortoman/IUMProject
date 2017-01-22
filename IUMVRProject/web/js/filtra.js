@@ -11,3 +11,91 @@ function filtra() {
         document.getElementById("on_off_480table").style.visibility = 'hidden';
     }
 }
+
+function filt(s){
+    var x = document.getElementById("pop").value;
+
+
+    
+    switch(x){
+        case 'popularity':
+            $('#on_off_480table2').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table'));
+            }
+            });
+            break;
+        
+        case 'alfabetic+':
+            $('#on_off_480table').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table2'));
+            }
+            });
+            break;
+         
+        case 'alfabetic-':
+            $('#on_off_480table2').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table'));
+            }
+            });
+            break;
+            
+        case 'price+':
+            $('#on_off_480table').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table2'));
+            }
+            });
+            break;
+            
+        case 'price-':
+            $('#on_off_480table2').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table'));
+            }
+            });
+            break;
+            
+        case 'footage+':
+            $('#on_off_480table').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table2'));
+            }
+            });
+            break;
+            
+        case 'footage-':
+            $('#on_off_480table2').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table'));
+            }
+            });
+            break;
+    }
+    /*
+    if(x === 'popularity'){
+            $('#on_off_480table2').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table'));
+            }
+        });
+    }
+    
+    if(x === 'alfabetic+'){
+            $('#on_off_480table').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table2'));
+            }
+        });
+    }
+    
+    if(x === 'alfabetic+'){
+            $('#on_off_480table').each(function () {
+            if (!$(this).text().match(/^\s*$/)) {
+                $(this).insertBefore($(this).prev('#on_off_480table2'));
+            }
+        });
+    }*/
+}
