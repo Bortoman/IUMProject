@@ -8,18 +8,18 @@
 <!--Footer delle pagine-->
 <footer>
     <a>
-        <image style="border: 0; width: 120px; height: 60px"
-               src="http://www.roslife.co.za/wp-content/uploads/2014/03/Powered-By.png"
+        <image style="border: 0; width: 135px; height: 80px; position: relative; top: 10px; left: 20px;"
+               src="img/poweredby.png"
                alt="Powered by"/>
     </a>
     <a href="https://vr.google.com/cardboard/">
         <img style="border:0;width:60px;height:60px"
-             src="https://upload.wikimedia.org/wikipedia/en/e/e1/Google_Cardboard_logo.png"
+             src="img/Google_Cardboard_logo.png"
              alt="Google Cardboard" />
     </a>
     <a href="https://threejs.org/">
         <img style="border:0;width:60px;height:60px"
-             src="https://www.digitaltactics.co.uk/wp-content/uploads/sites/2/2015/11/three-js-logo-480x368.png"
+             src="img/threejs.png"
              alt="Three js Library" />
     </a>
 </footer>

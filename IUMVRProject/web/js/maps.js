@@ -42,7 +42,7 @@
     // marker ospedale
     
     google.maps.event.addListener(marker, 'mouseover', function(event) {
-          var img = { url: 'Foto/Appartamento1/Appartamento1maps.png', size: new google.maps.Size(115,98) };
+          var img = { url: 'Foto/Appartamento1/Appartamentofinal1.png', size: new google.maps.Size(120,110) };
           this.setIcon(img);
       });
      google.maps.event.addListener(marker, 'mouseout', function(event) {
@@ -55,7 +55,7 @@
         
     // marker trieste
     google.maps.event.addListener(marker1, 'mouseover', function(event) {
-          var img = { url: 'Foto/Appartamento2/Appartamento2maps.png', size: new google.maps.Size(115,98) };
+          var img = { url: 'Foto/Appartamento2/Appartamentofinal2.png', size: new google.maps.Size(120,110) };
           this.setIcon(img);
       });
       google.maps.event.addListener(marker1, 'mouseout', function(event) {
