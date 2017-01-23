@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-
+/*
 body{
     margin: 0;
     font-family: "Open Sans", Arial, sans-serif;
@@ -18,7 +18,27 @@ body{
     background-repeat: no-repeat;
     background-size: 100% 700px;
     background-color: #f0f0f0;
+}*/
+
+/* new */
+body{
+    margin: 0;
+    font-family: "Open Sans", Arial, sans-serif;
+    color: black;
+    background-color: white;
+    overflow-x: hidden;
 }
+
+#sfondo{
+    background-image: url('../img/home.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: 0;
+    margin: 0;
+    height:820px;
+}
+
+/* new */
 
 #box{
     width: 100%;
@@ -459,6 +479,7 @@ float: left;}
     th{
         height: 150px;
         width: 60px;
+        padding: 0;
         /*border: 1px solid gainsboro;*/
     }
     
@@ -475,6 +496,10 @@ float: left;}
         text-align: center;
         border: 1px solid gainsboro;
         font-size: 13px;
+    }
+    
+    #on_off_480table2{
+        margin-top: 15px;
     }
     
     /* bottone visualizza ulteriori dettagli casa */  
@@ -577,4 +602,94 @@ float: left;}
 
     }
     
-   
+    
+    footer {
+    position: relative;
+    
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    background-color: #EEF0F7;
+}
+
+footer a{
+    height: 40px;
+    padding: 5px;
+    text-decoration: none;
+}
+    
+@media only screen and (max-width: 1250px){
+    
+
+}
+
+@media only screen and (max-width: 690px){
+        .dropbtn{
+        /*Proprietà del bottone*/
+        display: block;
+        position:absolute;
+        right: 5px;
+        top:5px;
+        height: 50px;
+        width: 50px;
+        background-image: url(../img/show-menu-icon.png);
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+    }
+    #header_box{
+        position:absolute;
+        right: 0;
+        top: 0;
+        height: 50px;
+        width: 50px;
+    }
+    #header_box ul {
+        position:absolute;
+        left: -150px;
+        top:55px;
+        display: none;
+        padding-left: 0px;
+        width:200px;
+        height: auto;
+        z-index: 22;
+
+    }
+    #header_box:hover .pageNav{
+        display: block;
+
+    }
+
+
+    #header_box li{
+        display: block;
+        float: none; 
+    }
+
+    #header_box a {
+        display: block;
+        padding: 0;
+        background-color: #ffffff; 
+
+    }  
+
+    #header_box li a {
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        padding: 14px; /* 14 -> distanza verticale opzioni; 40 -> distanza orizzontale opzioni*/
+        text-decoration: none;
+        color: #000; /* colore opzioni header */
+        font-weight: bold;
+
+    }
+
+    #header_box li a:hover {
+        background-color: #3399ff;  
+        color: #fff;
+        text-decoration: underline;
+
+    }
+}

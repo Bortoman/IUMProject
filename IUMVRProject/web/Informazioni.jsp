@@ -56,7 +56,7 @@
         <div id="box">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
-
+        <div id="sfondo">
         <div id="info">
             <div id="filtri">
 
@@ -272,10 +272,10 @@
                     <tr>
                         <th rowspan="5">
                             <a href="stereo.jsp">    
-                                <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="475" height="285">
+                                <img title="Appartamento1" alt="Appartamento1" src="Foto/Appartamento1/Appartamento1.JPG" width="480" height="290">
                             </a>
                         </th>
-                        <td>Address: ${nome_citta}, Via Ospedale 72</td>
+                        <td class="spaziatura">Address: ${nome_citta}, Via Ospedale 72</td>
                     </tr>
                     <tr>
                         <td>
@@ -335,13 +335,8 @@
 
 
     </div>
-    <!--<div style="clear:both;"></div>-->
+        </div>
 
-
-    <!--<div id="description">
-        Qualche info random    
-            
-        </div>-->
-
+     <%@ include file="blocchi_dinamici/footer.jsp" %>                   
 </body>
 </html>
