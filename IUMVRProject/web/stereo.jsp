@@ -346,6 +346,8 @@
                     </div>
                 </div>
                 <div class="InfoBig">
+                    <h2>Appartment in Cagliari. Via Ospedale, 72</h2>
+                    <p>Italy • Cagliari</p> 
 
                     <div class="InfoSmall">
                         <button>
