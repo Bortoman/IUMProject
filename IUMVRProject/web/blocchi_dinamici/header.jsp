@@ -7,7 +7,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <header id="header">
-    <img src="img/logo.png" alt="logo" width="50" height="50" style="float: left; margin-top: 5px; margin-left: 5px;">
+    <img src="img/logo.png" alt="logo" width="50" height="50" style="float: left; margin-top: 5px; margin-left: 40px;">
+    <p class="title" style="color: #003366; font-family: garamond; font-size: 30px; position: absolute; margin-left: 105px; margin-top: 11px">HI-FI Rooms</p>
     <div id="header_box">  
         
         <div class="dropbtn">

@@ -31,7 +31,7 @@ and open the template in the editor.
 		var sphere = new THREE.Mesh(
 			new THREE.SphereGeometry(100, 200, 200),
 			new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('equirect.png')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento2/Bedroom.jpg')
 			})
 		);
         var targetList = [];
@@ -61,7 +61,7 @@ and open the template in the editor.
                 mesh.rotation.y + (Math.PI / 4);
 		sphere.scale.x = -1;
 		scene.add(sphere);
-                scene.add(mesh);
+                
 		var controls = new THREE.OrbitControls(camera);
 		controls.noPan = true;
 		controls.noZoom = false; 
@@ -115,7 +115,7 @@ and open the template in the editor.
 		console.log("Hit @ " + toString( intersects[0].point ) );
 		// change the color of the closest face.
 		sphere.material = new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture('cpucl.jpg')
+				map: THREE.ImageUtils.loadTexture('Foto/Appartamento2/Hall2')
 			});
                     }
         }, false);

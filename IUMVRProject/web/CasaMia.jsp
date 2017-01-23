@@ -55,19 +55,85 @@
                 position: relative;
                 top:-200px;
             }
+            .mobileinfo{
+                display: none;
+            }
             .InfoSmall{
                 background: white;
                 height: 250px;
                 width: 250px;
                 position: relative;
-                top: -150px;
+                top: -200px;
                 left: 57%;
                 border-radius: 8px;
             }
-            .InfoSmall button{
+            .InfoBig p, .InfoBig h2{
                 position: relative;
-                top: 80%;
                 left: 50px;
+                color: whitesmoke;
+                top: 50px;
+            }
+            .InfoSmall button{
+                position: absolute;
+                bottom: 30px;
+                left: 55px;
+            
+                /* dimensione e colore del bordo */
+                border: 1px solid #a1a3a3;
+                /* ondulazione angoli */
+                border-radius: 4px;
+                /* ombra angoli */
+                box-shadow: 0 1px #fff;  
+
+                /* larghezza bottone */
+                
+                /* altezza bottone */
+                height:30px;
+
+                
+                /* colore scritta */
+                color:#000;
+
+                
+
+                /* posizione scritta all'interno del bottone */
+                padding-top:2px;
+
+                margin-top: 5px;
+                /* onmouse over appare la manina*/
+                cursor: pointer;
+
+                /*background-color: #fff;
+                background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));*/
+                background: #3399ff;
+                }
+
+                .InfoSmall button:hover{
+                /*background-color: #ABABAB;
+              background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));*/
+                background: #99ebff;
+                }
+                
+                .InfoSmall p{
+                    
+                    padding: 15px;
+                }
+                .InfoSmall .footage{
+                    position: absolute;
+                    top: 80px;
+                }
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            .InfoSmall p{
+                color: graytext;
+                position: relative;
             }
             #gallery{
                 overflow-y:scroll; 
@@ -140,10 +206,57 @@
                     position: relative;
                     top: 0;
                 }
+                .InfoBig p, .InfoBig h2{
+                    color: graytext;
+                }
                 .InfoSmall{
                     display: none;
 
                 }
+                .mobileinfo{
+                    display: block;
+                }
+                .mobileinfo button{
+                position: absolute;
+                bottom: 30px;
+                left: 55px;
+            
+                /* dimensione e colore del bordo */
+                border: 1px solid #a1a3a3;
+                /* ondulazione angoli */
+                border-radius: 4px;
+                /* ombra angoli */
+                box-shadow: 0 1px #fff;  
+
+                /* larghezza bottone */
+                
+                /* altezza bottone */
+                height:30px;
+
+                
+                /* colore scritta */
+                color:#000;
+
+                
+
+                /* posizione scritta all'interno del bottone */
+                padding-top:2px;
+
+                margin-top: 5px;
+                /* onmouse over appare la manina*/
+                cursor: pointer;
+
+                /*background-color: #fff;
+                background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));*/
+                background: #3399ff;
+                }
+
+                .mobileinfo button:hover{
+                /*background-color: #ABABAB;
+              background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));*/
+                background: #99ebff;
+                }
+                
                 .InfoSmall button{
                     position: relative;
                     top: 80%;
@@ -184,6 +297,7 @@
                     position: relative;
                     top: 500px;
                 }
+                
 
             }
 
@@ -223,6 +337,66 @@
                     width: 100%;
                     position: relative;
                     top: 0;
+                }
+                .InfoBig p, .InfoBig h2{
+                    color: graytext;
+                    left: 20px;
+                }
+                .InfoSmall{
+                    display: none;
+
+                }
+                .mobileinfo{
+                    display: block;
+                }
+                .mobileinfo .footage{
+                    top: 10px;
+                }
+                .mobileinfo button{
+                position: absolute;
+                bottom: 30px;
+                left: 30%;
+            
+                /* dimensione e colore del bordo */
+                border: 1px solid #a1a3a3;
+                /* ondulazione angoli */
+                border-radius: 4px;
+                /* ombra angoli */
+                box-shadow: 0 1px #fff;  
+
+                /* larghezza bottone */
+                
+                /* altezza bottone */
+                height:30px;
+
+                
+                /* colore scritta */
+                color:#000;
+
+                
+
+                /* posizione scritta all'interno del bottone */
+                padding-top:2px;
+
+                margin-top: 5px;
+                /* onmouse over appare la manina*/
+                cursor: pointer;
+
+                /*background-color: #fff;
+                background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));*/
+                background: #3399ff;
+                }
+
+                .mobileinfo button:hover{
+                /*background-color: #ABABAB;
+              background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));*/
+                background: #99ebff;
+                }
+                
+                .InfoSmall button{
+                    position: relative;
+                    top: 80%;
+                    left: 50%;
                 }
                 .InfoSmall{
                     display: none;
@@ -316,6 +490,7 @@
                     position: relative;
                     top: 500px;
                 }
+                
 
             }
 
@@ -346,12 +521,34 @@
                             <div class="slider round"></div>
                         </label>
                     </div>
+                    <hr style="margin-left: 25px; margin-right: 25px;"/>
                 </div>
                 <div class="InfoBig">
-
-                    <div class="InfoSmall">
+                    <h2>Appartment in Cagliari. Via Ospedale, 72</h2>
+                    <p>Italy • Cagliari</p> 
+                    <div class="mobileinfo">
+                         <p class="price">Price: 150.000 €</p>
+                        <br/>
+                        <hr style="margin-left: 25px; margin-right: 25px;"/>
+                        <p class="footage">Footage: 100 m<sup><small>2</small></sup>
+                        </p>
+                        
+                        
+                        
                         <button>
-                            Contatta Inserzionista
+                            <a href="http://www.immobiliare.it/58756838-Vendita-Villa-Is-Molas-Resort-Pula.html">Contatta Inserzionista</a>
+                        </button>
+                    </div>
+                    <div class="InfoSmall">
+                        <p class="price">Price: 150.000 €</p>
+                        <br/>
+                        <hr style="margin-left: 25px; margin-right: 25px;"/>
+                        <p class="footage">Footage: 100 m<sup><small>2</small></sup>
+                        </p>
+                        
+                        <hr style="position: relative; top: 40px; margin-left: 25px; margin-right: 25px;"/>
+                        <button>
+                            <a href="http://www.immobiliare.it/58756838-Vendita-Villa-Is-Molas-Resort-Pula.html">Contatta Inserzionista</a>
                         </button>
                     </div>
                 </div>
@@ -583,7 +780,7 @@
                                             for (var i = 0; i < hall1Pointers.length; i++) {
                                                 scene.add(current[i]);
                                                 targetList.push(current[i]);
-                                                recRem(current[i]);
+                                                add_toRec(current[i]);
                                             }
 
                                             break;
@@ -725,7 +922,7 @@
                                         for (var i = 0; i < hall1Pointers.length; i++) {
                                             scene.add(current[i]);
                                             targetList.push(current[i]);
-                                            recRem(current[i]);
+                                            add_toRec(current[i]);
                                         }
 
                                         break;
@@ -745,7 +942,7 @@
                                             add_toRec(current[i]);
                                         }
                                         break;
-                                    case 'goHall2H1':
+                                    case 'goHall2FH1':
                                         for (var i = 0; i < current.length; i++) {
                                             scene.remove(current[i]);
                                             targetList.pop(current[i]);

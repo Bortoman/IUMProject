@@ -627,13 +627,83 @@ footer a{
 
 }
 
-@media only screen and (max-width: 728px){
-
-
+@media only screen and (max-width: 830px){
+#header .title{
+        display: none;
+    }
+    #right_section{
+        display: none;
+    }
+    .slidermetratura{
+        
+        margin-left: 30px;
+        
+    }
+    .slidermetratura1, .sliderprezzo1{
+        width: 65%;
+        padding: 5px;
+    }
+    .sliderprezzo{
+        margin-left: 30px;
+    }
+    
+    #filtri{
+        height: 160px;
+    }
+    #menu{
+        position: absolute;
+        right: 5%;
+    }
+    #slider1{
+        position: absolute;
+        top: 140px;
+        left:0;
+    }
+    #cliente_480table{
+        width: 100%;
+        height: 390px;
+    }
+    #allinea{
+        height: 400px;
+    }
+    
 
 }
 
-@media only screen and (max-width: 690px){
+@media only screen and (max-width: 710px){
+    #filtri{
+        height: 260px;
+    }
+    #searchfield{
+        width: 100%;
+    }
+    .form-container{
+        width: 89%;
+    }
+    #searchfield form .biginput{
+        width: 70%;
+    }
+    #menu{
+        position: absolute;
+        top: 130px;
+        right: 30%;
+    }
+    #slider1{
+        position: absolute;
+        top: 200px;
+        left: -150px;
+        width: 100%;
+    }
+    #cliente_480table{
+        width: 100%;
+        height: 390px;
+    }
+    #info{
+        height: 700px;
+    }
+    .allinea{
+        height: 400px;
+    }
         .dropbtn{
         /*Proprietà del bottone*/
         display: block;
@@ -702,4 +772,13 @@ footer a{
         text-decoration: underline;
 
     }
+    table img{
+        width: 150px;
+        height: 150px;
+    }
+    .star{
+        width: 20px;
+        height: 20px;
+    }
+    
 }

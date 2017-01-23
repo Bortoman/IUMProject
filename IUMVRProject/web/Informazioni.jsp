@@ -286,9 +286,9 @@
                     </tr>
                     <tr>
                         <td>
-                            <img title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
-                            <img title="star" alt="rank" src="img/star1.png" width="30" height="30">
-                            <img title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
                             </td>
                     </tr>
                     <tr>
@@ -313,10 +313,10 @@
                     </tr>
                     <tr>
                         <td>
-                        <img title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
-                        <img title="star" alt="rank" src="img/star1.png" width="30" height="30">
-                        <img title="star" alt="rank" src="img/star1.png" width="30" height="30">   
-                        <img title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">   
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
                             
                         </td>
                     </tr>
