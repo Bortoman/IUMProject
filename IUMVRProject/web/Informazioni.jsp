@@ -115,6 +115,8 @@
                             
                             if ( (v1 > 150000) || (v2 < 150000) ){
                                 document.getElementById("on_off_480table").style.display = 'none';
+                                document.getElementById("on_off_480table2").style.marginTop = '0px';
+                                
                                 tab1 = true;
                             }
                             
@@ -191,6 +193,7 @@
                             
                             if ( (v1 > 100) || (v2 < 100) ){
                                 document.getElementById("on_off_480table").style.display = 'none';
+                                document.getElementById("on_off_480table2").style.marginTop = '0px';
                                 tab1 = true;
                             }
                             
