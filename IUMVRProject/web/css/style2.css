@@ -291,8 +291,8 @@ body{
 }
 #searchfield form .biginput:focus {
     color: #001135;
-    box-shadow: 0 0 5px #00ff00;
-    border: 1px solid #00ff00;
+    box-shadow: 0 0 5px #3399ff;
+    border: 1px solid #3399ff;
 }
 
 /* messaggio di errore */

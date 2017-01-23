@@ -300,8 +300,8 @@ float: left;}
 }
 #searchfield form .biginput:focus {
   color: #001135;
-  box-shadow: 0 0 5px #00ff00;
-  border: 1px solid #00ff00;
+  box-shadow: 0 0 5px #3399ff;
+  border: 1px solid #3399ff;
 }
 
 /* messaggio di errore */
@@ -530,13 +530,15 @@ float: left;}
     /* onmouse over appare la manina*/
     cursor: pointer;
 
-    /*background-color: #fff;*/
-    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+    /*background-color: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));*/
+    background: #3399ff;
     }
 
         .bottoneinfo:hover{
-        /*background-color: #ABABAB;*/
-      background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+        /*background-color: #ABABAB;
+      background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));*/
+        background: #99ebff;
     }
  
     /* slider */
