@@ -24,6 +24,10 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table'));
             }
             });
+            
+            document.getElementById("on_off_480table2").style.marginTop = '0px';
+            document.getElementById("on_off_480table").style.marginTop = '15px';
+            
             break;
         
         case 'alfabetic+':
@@ -32,6 +36,10 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table2'));
             }
             });
+            
+            document.getElementById("on_off_480table").style.marginTop = '0px';
+            document.getElementById("on_off_480table2").style.marginTop = '15px';
+            
             break;
          
         case 'alfabetic-':
@@ -40,6 +48,10 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table'));
             }
             });
+            
+            document.getElementById("on_off_480table2").style.marginTop = '0px';
+            document.getElementById("on_off_480table").style.marginTop = '15px';
+            
             break;
             
         case 'price+':
@@ -48,6 +60,9 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table2'));
             }
             });
+            
+            document.getElementById("on_off_480table").style.marginTop = '0px';
+            document.getElementById("on_off_480table2").style.marginTop = '15px';
             break;
             
         case 'price-':
@@ -56,6 +71,9 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table'));
             }
             });
+            
+            document.getElementById("on_off_480table2").style.marginTop = '0px';
+            document.getElementById("on_off_480table").style.marginTop = '15px';
             break;
             
         case 'footage+':
@@ -64,6 +82,9 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table2'));
             }
             });
+            
+            document.getElementById("on_off_480table").style.marginTop = '0px';
+            document.getElementById("on_off_480table2").style.marginTop = '15px';
             break;
             
         case 'footage-':
@@ -72,6 +93,8 @@ function filt(s){
                 $(this).insertBefore($(this).prev('#on_off_480table'));
             }
             });
+            document.getElementById("on_off_480table2").style.marginTop = '0px';
+            document.getElementById("on_off_480table").style.marginTop = '15px';
             break;
     }
 
