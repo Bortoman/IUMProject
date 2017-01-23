@@ -300,7 +300,7 @@
                     <tr>
                         <th rowspan="5">
                             <a href="CasaMia.jsp">
-                                <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="475" height="285">
+                                <img title="Appartamento2" alt="Appartamento2" src="Foto/Appartamento2/Appartamento2.JPG" width="480" height="290">
                             </a>
                         </th>
                         <td>Address: ${nome_citta}, Viale Trieste 1</td>
