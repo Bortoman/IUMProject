@@ -125,11 +125,25 @@
                 
             
             
-            
-            
-            
-            
-            
+                .energetic ul {
+                    list-style-type: none;
+                    width: 460px;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: #333;
+                }
+
+                .energetic li {
+                    float: left;
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;   
+                    width: 25px;
+                }
+     
             
             .InfoSmall p{
                 color: graytext;
@@ -520,6 +534,72 @@
                 </div>
             </div>
         </section>
+        <div class="additionalInfos">
+                    <div>
+                        
+                        <h2 class="categoryT">
+                            Beds:
+                        </h2>
+                        
+                        <ul class="categoryB">
+                            <li>
+                                One
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Kitchen:
+                        </h2>
+                        <ul class="categoryB">
+                            <li>
+                                Gas Range
+                            </li>
+                            <li>
+                                Refrigerator
+                            </li>
+                            <li>
+                                Microwave
+                            </li>
+                            <li>
+                                Dishwasher
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Feautures:
+                        </h2>
+                        <ul class="categoryB">
+                            <li>
+                                Fireplace
+                            </li>
+                            <li>
+                                Terrace
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Energetic Class:
+                        </h2>
+                        
+                        <div class="energetic">
+                            <ul>
+                                <li>A+</li>
+                                <li style="background-color: green;">A</li>
+                                <li>B</li>
+                                <li>C</li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>F</li>
+                                <li>G</li>      
+                            </ul>
+                            
+
+                        </div>
+                </div>        
+                
         <%@ include file="blocchi_dinamici/footer.jsp"%>
 
         <script src="js/three.min.js" type="text/javascript"></script>
