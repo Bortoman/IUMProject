@@ -59,7 +59,7 @@
                 height: 250px;
                 width: 250px;
                 position: relative;
-                top: -200px;
+                top: -250px;
                 left: 57%;
                 border-radius: 8px;
             }
@@ -68,6 +68,10 @@
                 left: 50px;
                 color: whitesmoke;
                 top: 50px;
+            }
+            .InfoBig .rating{
+                position: relative;
+                left: 200px;
             }
             .InfoSmall button{
                 position: absolute;
@@ -148,6 +152,7 @@
             }
             #galleryBackground{
                 position: absolute; right: 0px; height: 100%; width: 100%; background-color: white;
+                text-align: center;
             }
             #galleryBackground ul{
                 list-style: none; 
@@ -159,7 +164,20 @@
             #galleryBackground li img{
                 border: solid lightskyblue 4px;
             }
-            #carboardToggle{display: none;}
+            #carboardToggle{
+                display: none;
+            }
+            #galleryBackground p{
+                    
+                    width: 100px;
+                    background: lightblue;
+                    border-radius: 6px;
+                    color: white;
+                    position: relative;
+                    left: 25%;
+                    bottom: 60px;
+                    padding: 5px;
+                }
             
             @media only screen and (max-width: 1024px){
                 .InfoSmall{
@@ -253,6 +271,7 @@
                     position: relative;
                     top: 500px;
                 }
+                
                 
 
             }
@@ -437,7 +456,7 @@
 
         </style>
     </head>
-    <body>
+    <body id="body">
         <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
@@ -445,7 +464,7 @@
         <section id="TourVR">
 
             <div class="startTour">
-                <a id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
+                <a href='#body' id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
                 <div id="example">
 
                 </div>
@@ -466,6 +485,11 @@
                 <div class="InfoBig">
                     <h2>Appartment in Cagliari. Via Ospedale, 72</h2>
                     <p>Italy • Cagliari</p> 
+                    <div class="rating">
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                            <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                    </div>
                     <div class="mobileinfo">
                          <p class="price">Price: 150.000 €</p>
                         <br/>

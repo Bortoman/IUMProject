@@ -63,9 +63,13 @@
                 height: 250px;
                 width: 250px;
                 position: relative;
-                top: -200px;
+                top: -250px;
                 left: 57%;
                 border-radius: 8px;
+            }
+            .InfoBig .rating{
+                position: relative;
+                left: 200px;
             }
             .InfoBig p, .InfoBig h2{
                 position: relative;
@@ -148,6 +152,7 @@
             }
             #galleryBackground{
                 position: absolute; right: 0px; height: 100%; width: 100%; background-color: white;
+                text-align: center;
             }
             #galleryBackground ul{
                 list-style: none; 
@@ -160,6 +165,17 @@
                 border: solid lightskyblue 4px;
             }
             #carboardToggle{display: none;}
+            #galleryBackground p{
+                    
+                    width: 100px;
+                    background: lightblue;
+                    border-radius: 6px;
+                    color: white;
+                    position: relative;
+                    left: 25%;
+                    bottom: 60px;
+                    padding: 5px;
+                }
             
             @media only screen and (max-width: 1024px){
                 .InfoSmall{
@@ -496,7 +512,7 @@
 
         </style>
     </head>
-    <body>
+    <body id="body">
         <div id="box" style="z-index: 4">
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         </div>
@@ -504,7 +520,7 @@
         <section id="TourVR">
 
             <div class="startTour">
-                <a id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
+                <a href='#body' id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
                 <div id="example">
 
                 </div>
@@ -526,6 +542,12 @@
                 <div class="InfoBig">
                     <h2>Appartment in Cagliari. Via Ospedale, 72</h2>
                     <p>Italy • Cagliari</p> 
+                    <div class="rating">
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30">   
+                        <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
+                    </div>
                     <div class="mobileinfo">
                          <p class="price">Price: 150.000 €</p>
                         <br/>
@@ -540,6 +562,7 @@
                         </button>
                     </div>
                     <div class="InfoSmall">
+                        
                         <p class="price">Price: 150.000 €</p>
                         <br/>
                         <hr style="margin-left: 25px; margin-right: 25px;"/>
@@ -554,6 +577,60 @@
                 </div>
             </div>
         </section>
+                <div class="additionalInfos">
+                    <div>
+                        
+                        <h2 class="categoryT">
+                            Beds:
+                        </h2>
+                        
+                        <ul class="categoryB">
+                            <li>
+                                One
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Kitchen:
+                        </h2>
+                        <ul class="categoryB">
+                            <li>
+                                Gas Range
+                            </li>
+                            <li>
+                                Refrigerator
+                            </li>
+                            <li>
+                                Microwave
+                            </li>
+                            <li>
+                                Dishwasher
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Feautures:
+                        </h2>
+                        <ul class="categoryB">
+                            <li>
+                                Fireplace
+                            </li>
+                            <li>
+                                Terrace
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="categoryT">
+                            Energetic Class:
+                        </h2>
+                        <ul class="categoryB">
+                            
+                        </ul>
+                    </div>
+                </div>
                 <div class="footer">
         <%@ include file="blocchi_dinamici/footer.jsp"%> 
                 </div>

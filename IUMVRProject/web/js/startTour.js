@@ -6,6 +6,7 @@
 startTour = function(){
     
     var tourWindow = document.getElementById('example');
+    var body = document.getElementById('body');
     var gallery = document.getElementById('gallery');
     var start = document.getElementById("startTourIMG");
     tourWindow.style.position='absolute';
@@ -17,6 +18,7 @@ startTour = function(){
     start.style.display='none';
     gallery.style.height='auto';
     gallery.style.bottom='0';
+    body.style.overflow= 'hidden';
     
 };
 startTourPhoto = function(){
