@@ -53,7 +53,7 @@
                 height: 200px;
                 width: 100%;
                 position: relative;
-                top:-200px;
+                top:-220px;
             }
             .mobileinfo{
                 display: none;
@@ -176,6 +176,85 @@
                     bottom: 60px;
                     padding: 5px;
                 }
+                .additionalInfos{
+                    
+                    margin-top: 50px;
+                    padding-bottom: 50px;
+                    background: #cccccc;
+                    position: relative;
+                    left: 5%;
+                    width: 90%;
+                    
+                }
+                .additionalInfos h2, .additionalInfos ul, .energetic{
+                    margin: 0;
+                    padding: 20px;
+                  
+                   display: inline-block;
+                }
+                .additionalInfos h2{
+                    
+                }
+                
+                
+                .additionalInfos ul, .energetic{
+                    
+                    list-style-type: none;
+                    position: relative;
+                    
+                }
+                .categoryB li{
+                    display: inline-block;
+                    padding: 20px;
+                    font-size: 15pt;
+                    
+                }
+                
+                
+                .additionalInfos .pari{
+                    position: relative;
+                    
+                    width: 100%;
+                    margin: 0;
+                    border-bottom: solid gray 2px;
+                    
+                }
+                .additionalInfos .dispari{
+                    position: relative;
+                    border-bottom: solid gray 2px;
+                    width: 100%;
+                    
+                }
+                
+                .energetic ul {
+                    position: relative;
+                    top: 30px;
+                    list-style-type: none;
+                    width: 462px;
+                    margin: 0;
+                    
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: #333;
+                }
+
+                .energetic li {
+                    float: left;
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;   
+                    width: 25px;
+                }
+                
+                .energetic li {
+                    border-right: 1px solid #bbb;
+                }
+
+                .energetic li:last-child {
+                    border-right: none;
+                }
             
             @media only screen and (max-width: 1024px){
                 .InfoSmall{
@@ -187,7 +266,8 @@
 
             @media only screen and (max-width: 868px) and (min-width: 480px){
                 body{
-                    overflow:visible;
+                    overflow-y:visible;
+                    overflow-x: hidden;
                 }
                 #TourVR{
                     width: 100%;
@@ -234,8 +314,7 @@
                 }
                 .mobileinfo button{
                 position: absolute;
-                bottom: 30px;
-                left: 55px;
+                
             
                 /* dimensione e colore del bordo */
                 border: 1px solid #a1a3a3;
@@ -313,7 +392,15 @@
                     position: relative;
                     top: 500px;
                 }
-                
+                .additionalInfos{
+                    position: relative;
+                    top:500px;
+                }
+                .mobileinfo button{
+                    position: absolute;
+                    bottom: 70px;
+                    right: 50px;
+                }
 
             }
 
@@ -370,8 +457,7 @@
                 }
                 .mobileinfo button{
                 position: absolute;
-                bottom: 30px;
-                left: 30%;
+                
             
                 /* dimensione e colore del bordo */
                 border: 1px solid #a1a3a3;
@@ -506,6 +592,22 @@
                     position: relative;
                     top: 500px;
                 }
+                .additionalInfos{
+                    position: relative;
+                    top:370px;
+                }
+                .energetic ul{
+                    width: 342px;
+                }
+                .energetic li{
+                    width: 10px;
+                }
+                .mobileinfo button{
+                    position: absolute;
+                    bottom: 70px;
+                    right: 30px;
+                }
+                
                 
 
             }
@@ -520,7 +622,7 @@
         <section id="TourVR">
 
             <div class="startTour">
-                <a href='#body' id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/logo.png" alt="" height="200px" width="200px" onmouseover="startTourPhoto();" onmouseout="ripristinaPhoto()"/></a>
+                <a href='#body' id ="startTourIMG" onclick="startTour();"><img id="immagineStart" src="img/start.png" alt="" height="200px" width="200px"/></a>
                 <div id="example">
 
                 </div>
@@ -540,7 +642,7 @@
                     <hr style="margin-left: 25px; margin-right: 25px;"/>
                 </div>
                 <div class="InfoBig">
-                    <h2>Appartment in Cagliari. Via Ospedale, 72</h2>
+                    <h2>Appartment in Cagliari. Viale Trieste, 1</h2>
                     <p>Italy • Cagliari</p> 
                     <div class="rating">
                         <img class="star" title="star" alt="rank" src="img/star1.png" width="30" height="30"> 
@@ -551,7 +653,7 @@
                     <div class="mobileinfo">
                          <p class="price">Price: 150.000 €</p>
                         <br/>
-                        <hr style="margin-left: 25px; margin-right: 25px;"/>
+                        
                         <p class="footage">Footage: 100 m<sup><small>2</small></sup>
                         </p>
                         
@@ -578,7 +680,7 @@
             </div>
         </section>
                 <div class="additionalInfos">
-                    <div>
+                    <div class="pari">
                         
                         <h2 class="categoryT">
                             Beds:
@@ -590,7 +692,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="dispari">
                         <h2 class="categoryT">
                             Kitchen:
                         </h2>
@@ -609,7 +711,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="pari">
                         <h2 class="categoryT">
                             Feautures:
                         </h2>
@@ -626,9 +728,20 @@
                         <h2 class="categoryT">
                             Energetic Class:
                         </h2>
-                        <ul class="categoryB">
+                        <div class="energetic">
+                            <ul>
+                                <li>A+</li>
+                                <li >A</li>
+                                <li>B</li>
+                                <li>C</li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>F</li>
+                                <li style="background-color: red;">G</li>      
+                            </ul>
                             
-                        </ul>
+
+                        </div>
                     </div>
                 </div>
                 <div class="footer">
@@ -1202,41 +1315,41 @@
 
 
                         //TODO Creare vettori per ogni stanza che contengono i pulsanti di navigazione
-                        goHall1FH2.position.set(-12, 0, 0);
+                        goHall1FH2.position.set(-12, -5, 0);
                         goHall1FH2.rotation.set(0, 0, 2.50);
                         goHall1FH2.name = "goHall1FH2";
 
-                        goHall1FBe.position.set(5, 0, -12);
+                        goHall1FBe.position.set(5, -5, -12);
                         goHall1FBe.rotation.set(0, 1.22, 0.75);
                         goHall1FBe.name = "goHall1FBe";
 
 
-                        goKitchen.position.set(7, 0, 12);
+                        goKitchen.position.set(7, -5, 12);
                         goKitchen.rotation.set(0, 2.18, 2.50);
                         goKitchen.name = 'goKitchen';
 
 
-                        goHall2FH1.position.set(-2, 0, 12);
+                        goHall2FH1.position.set(-2, -5, 12);
                         goHall2FH1.rotation.set(0, 1.5, 2.5);
                         goHall2FH1.name = "goHall2FH1";
                         add_toRec(goHall2FH1);
 
 
-                        goBedroom.position.set(-12, 0, 0);
+                        goBedroom.position.set(-12, -5, 0);
                         goBedroom.rotation.set(0, 0.06, 2.50);
                         goBedroom.name = 'goBedroom';
                         add_toRec(goBedroom);
 
 
-                        goBathroom.position.set(-2, 0, 15);
+                        goBathroom.position.set(-2, -5, 15);
                         goBathroom.rotation.set(0, 1.5, 2.50);
                         goBathroom.name = 'goBathroom';
 
-                        goHall2FK.position.set(-12, 0, 0);
+                        goHall2FK.position.set(-12, -5, 0);
                         goHall2FK.rotation.set(0, 0, 2.50);
                         goHall2FK.name = 'goHall2FK';
 
-                        goHall2FBa.position.set(5, 0, 12);
+                        goHall2FBa.position.set(5, -5, 12);
                         goHall2FBa.rotation.set(0, 2, 2.50);
                         goHall2FBa.name = 'goHall2FBa';
 
@@ -1289,7 +1402,7 @@
                             clickCancelFuse: true, // Overrides global setting for fuse's clickCancelFuse
                             reticleHoverColor: 0x00fff6, // Overrides global reticle hover color
                             fuseVisible: true, // Overrides global fuse visibility
-                            fuseDuration: 1.5, // Overrides global fuse duration
+                            fuseDuration: 3, // Overrides global fuse duration
                             fuseColor: 0xcc0000, // Overrides global fuse color
                             onGazeOver: function () {
                                 // do something when user targets object

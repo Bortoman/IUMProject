@@ -19,14 +19,7 @@ startTour = function(){
     gallery.style.height='auto';
     gallery.style.bottom='0';
     body.style.overflow= 'hidden';
-    
+  
 };
-startTourPhoto = function(){
-    var tourImg = document.getElementById('immagineStart');
-    tourImg.src="img/start.png";
-};
-ripristinaPhoto = function(){
-    var tourImg = document.getElementById('immagineStart');
-    tourImg.src="img/logo.png";
-};
+
 
