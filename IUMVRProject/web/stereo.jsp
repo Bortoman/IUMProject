@@ -127,7 +127,7 @@
             
                 .energetic ul {
                     list-style-type: none;
-                    width: 460px;
+                    width: 465px;
                     margin: 0;
                     padding: 0;
                     overflow: hidden;
@@ -143,6 +143,14 @@
                     text-decoration: none;   
                     width: 25px;
                 }
+                
+                .energetic li {
+                    border-right: 1px solid #bbb;
+                }
+
+                .energetic li:last-child {
+                    border-right: none;
+}
      
             
             .InfoSmall p{
