@@ -24,9 +24,14 @@
             <%@ include file="blocchi_dinamici/header.jsp" %>      
         
         <div id="sfondo">
+            
             <div id="searchbar"> 
                 <h1>Find your next apartment</h1>
                 <div id="searchfield">
+                    <div class="isa_warning" id="errormsg">
+                    <i class="fa fa-warning" id="altboing"></i>
+                    Please select a city from the suggestions list!
+                    </div>
                     <!--<form method="post" class="form-container" action="" onSubmit="return checkAnswer();">-->
                     <form class = "form-container" onSubmit="return checkAnswer();" action="/" id="form-action">
                         <input type="text" name="citta" class="biginput" id="autocomplete" placeholder="Type a city name">
@@ -37,10 +42,7 @@
                     </form>
                 </div>
 
-                <div class="isa_warning" id="errormsg">
-                    <i class="fa fa-warning" id="altboing"></i>
-                    Please select a city from the suggestions list!
-                </div>
+                
             </div>
         </div>
         <%@ include file="blocchi_dinamici/footer.jsp" %>
