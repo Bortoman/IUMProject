@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Cardboard Example</title>
+        <title>Cardboard Eenerxample</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="css/style2.css">
@@ -229,7 +229,7 @@
                 position: relative;
                 top: 30px;
                 list-style-type: none;
-                width: 462px;
+                width: 463px;
                 margin: 0;
 
                 padding: 0;
@@ -742,7 +742,7 @@
 
                 </div>
             </div> 
-            
+        </div>
             <div class="footer">
                 <%@ include file="blocchi_dinamici/footer.jsp"%>
             </div>

@@ -230,7 +230,7 @@
                     position: relative;
                     top: 30px;
                     list-style-type: none;
-                    width: 462px;
+                    width: 463px;
                     margin: 0;
                     
                     padding: 0;
