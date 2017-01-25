@@ -149,6 +149,7 @@
                 height: 720px; 
                 width: 230px; 
                 z-index: 2;
+                background: white;
             }
             #galleryBackground{
                 position: absolute; right: 0px; height: 100%; width: 100%; background-color: white;
