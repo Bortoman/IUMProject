@@ -273,7 +273,7 @@ float: left;}
 
 #searchfield form {
   display: inline-block;
-  background: #eeefed;
+  background: #c1c1d7; /* colore di sfondo barra di ricerca*/
   padding: 0;
   margin: 0;
   padding: 5px;
